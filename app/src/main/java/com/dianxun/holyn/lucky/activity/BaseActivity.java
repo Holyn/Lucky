@@ -19,9 +19,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutResId());
         injectDependencies();
         injectViews();
     }
+
+    protected  abstract  int getLayoutResId();
 
     /**
      * Method used to resolve dependencies provided by Dagger modules. Inject an object to provide
