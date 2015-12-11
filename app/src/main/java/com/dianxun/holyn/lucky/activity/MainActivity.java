@@ -34,6 +34,8 @@ public class MainActivity extends BaseActivity implements MainFoodPresenter.View
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mainFoodPresenter.setView(this);
+
+
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
