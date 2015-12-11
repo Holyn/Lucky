@@ -30,7 +30,6 @@ public class MainActivity extends BaseActivity implements MainFoodPresenter.View
     @Bind(R.id.tv)
     TextView tv;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
