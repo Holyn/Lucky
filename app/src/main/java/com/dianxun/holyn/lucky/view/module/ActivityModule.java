@@ -13,24 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dianxun.holyn.lucky.module;
+package com.dianxun.holyn.lucky.view.module;
 
-import java.lang.annotation.Retention;
+import android.app.Activity;
+import android.content.Context;
 
-import javax.inject.Qualifier;
-
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import dagger.Module;
+import dagger.Provides;
 
 /**
- * Annotation created to improve Context injection. This annotation is used with @Inject for
- * Context class to return the current Activity context.
- *
- * This annotation can be replaced with a @Named annotation, but configure before the
- * ActivityModule.
+ * Dagger module created to provide some common activity scope depdendencies as @ActivityContext.
+ * This module is going to be added to the graph generated for every activity while the activity
+ * creation lifecycle.
  *
  * @author Pedro Vicente Gómez Sánchez
  */
-@Qualifier @Retention(RUNTIME)
-public @interface ActivityContext {
-}
+@Module(library = true) public final class ActivityModule {
 
+  private final Activity activity;
+
+  public ActivityModule(Activity activity) {
+    this.activity = activity;
+  }
+
+  @ActivityContext
+  @Provides
+  Context provideActivityContext() {
+    return activity;
+  }
+}

@@ -2,7 +2,7 @@ package com.dianxun.holyn.lucky;
 
 import android.app.Application;
 
-import com.dianxun.holyn.lucky.module.RootModule;
+import com.dianxun.holyn.lucky.view.module.RootModule;
 
 import org.xutils.x;
 

@@ -1,6 +1,6 @@
-package com.dianxun.holyn.lucky.module;
+package com.dianxun.holyn.lucky.view.module;
 
-import com.dianxun.holyn.lucky.activity.MainActivity;
+import com.dianxun.holyn.lucky.view.activity.MainActivity;
 
 import dagger.Module;
 

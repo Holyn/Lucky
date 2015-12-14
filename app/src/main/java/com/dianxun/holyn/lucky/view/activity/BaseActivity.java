@@ -1,10 +1,10 @@
-package com.dianxun.holyn.lucky.activity;
+package com.dianxun.holyn.lucky.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.dianxun.holyn.lucky.LuckyApplication;
-import com.dianxun.holyn.lucky.module.ActivityModule;
+import com.dianxun.holyn.lucky.view.module.ActivityModule;
 
 import java.util.List;
 

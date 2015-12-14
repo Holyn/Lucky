@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".view.activity.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -19,27 +19,63 @@
             android:layout_gravity="center"
             android:text="我是幸运儿"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="20sp"/>
     </android.support.v7.widget.Toolbar>
 
-    <Button
-        android:id="@+id/button"
+    <com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.TouchCallbackLayout
+        android:id="@id/layout_header_scroll"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginLeft="63dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="115dp"
-        android:text="New Button"/>
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:text="Hello World!"/>
+        <android.support.v4.view.ViewPager
+            android:id="@id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:id="@id/header"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager_ad"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="m1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="m2"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="m3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="m4"/>
+            </LinearLayout>
+
+            <com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.SlidingTabLayout
+                android:id="@id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"/>
+        </LinearLayout>
+
+    </com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.TouchCallbackLayout>
 </RelativeLayout>
