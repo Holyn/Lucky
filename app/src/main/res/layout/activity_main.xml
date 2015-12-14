@@ -5,25 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red"
-        android:title="holyn">
+        android:background="@color/red">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="我是幸运儿"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
     </android.support.v7.widget.Toolbar>
+
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/toolbar"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/toolbar"
         android:layout_marginLeft="63dp"
         android:layout_marginStart="63dp"
-        android:layout_marginTop="115dp"/>
+        android:layout_marginTop="115dp"
+        android:text="New Button"/>
 
     <TextView
         android:id="@+id/tv"
