@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Lucky</string>
 
-    <string name="tab_country">Country</string>
-    <string name="tab_continent">Continent</string>
-    <string name="tab_city">City</string>
-    <string name="tab_scroll_view">Scroll View</string>
+    <string name="tab_popularity">人气</string>
+    <string name="tab_newest">最新</string>
+    <string name="tab_progress">进度</string>
+    <string name="tab_total_demand">总需人次</string>
 </resources>
