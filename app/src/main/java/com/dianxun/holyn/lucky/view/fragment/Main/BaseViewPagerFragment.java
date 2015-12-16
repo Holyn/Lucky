@@ -1,4 +1,4 @@
-package com.dianxun.holyn.lucky.view.fragment;
+package com.dianxun.holyn.lucky.view.fragment.Main;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -57,7 +57,7 @@ public abstract class BaseViewPagerFragment extends Fragment implements Scrollab
             throw new ClassCastException(
                     activity.toString() + " must implement ScrollableFragmentListener");
         }
-//        injectDependencies();
+        injectDependencies();
     }
 
     @Override

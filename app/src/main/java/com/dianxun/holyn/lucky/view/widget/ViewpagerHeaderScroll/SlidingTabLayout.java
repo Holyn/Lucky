@@ -17,8 +17,6 @@
 package com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -66,8 +64,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
     }
 
     private static final int TITLE_OFFSET_DIPS = 24;
-    private static final int TAB_VIEW_PADDING_DIPS = 16;
-    private static final int TAB_VIEW_TEXT_SIZE_SP = 12;
+    private static final int TAB_VIEW_PADDING_DIPS = 14;
+    private static final int TAB_VIEW_TEXT_SIZE_SP = 16;//viewpager title 大小
 
     private int mTitleOffset;
 
@@ -171,11 +169,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
     protected TextView createDefaultTabView(Context context) {
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(getResources().getColor(R.color.gray));
+        textView.setTextColor(getResources().getColor(R.color.black));
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP);
-        textView.setTypeface(Typeface.DEFAULT_BOLD);
-        textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT));
+//        textView.setTypeface(Typeface.DEFAULT_BOLD);
+        textView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
 
         TypedValue outValue = new TypedValue();
         getContext().getTheme()
@@ -184,7 +182,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         textView.setAllCaps(true);
 
         int padding = (int) (TAB_VIEW_PADDING_DIPS * getResources().getDisplayMetrics().density);
-        textView.setPadding(padding, padding, padding, padding);
+        textView.setPadding(0, padding, 0, padding);
 
         return textView;
     }
@@ -210,6 +208,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
             if (tabTitleView == null && TextView.class.isInstance(tabView)) {
                 tabTitleView = (TextView) tabView;
+                if (i == 0) {
+                    tabTitleView.setTextColor(getResources().getColor(R.color.red));
+                }
             }
 
             if (mDistributeEvenly) {
@@ -303,8 +304,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 mTabStrip.onViewPagerPageChanged(position, 0f);
                 scrollToTab(position, 0);
             }
+
+            ((TextView)mTabStrip.getChildAt(position)).setTextColor(getResources().getColor(R.color.red));
             for (int i = 0; i < mTabStrip.getChildCount(); i++) {
                 mTabStrip.getChildAt(i).setSelected(position == i);
+                if (i != position) {
+                    ((TextView)mTabStrip.getChildAt(i)).setTextColor(getResources().getColor(R.color.black));
+                }
             }
             if (mViewPagerPageChangeListener != null) {
                 mViewPagerPageChangeListener.onPageSelected(position);

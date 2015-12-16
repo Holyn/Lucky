@@ -1,4 +1,4 @@
-package com.dianxun.holyn.lucky.view.fragment;
+package com.dianxun.holyn.lucky.view.fragment.Main;
 
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -49,7 +49,7 @@ public class ListViewFragment extends BaseViewPagerFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        mainFoodPresenter.setView(this);//注入Presenter
+        mainFoodPresenter.setView(this);
 
         String[] listArrays = null;
         switch (mFragmentIndex) {
@@ -71,8 +71,8 @@ public class ListViewFragment extends BaseViewPagerFragment
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        mainFoodPresenter.setView(this);
-//        mainFoodPresenter.initialize();
+        mainFoodPresenter.setView(this);
+        mainFoodPresenter.initialize();
 
         mListView = (ListView) getRootView().findViewById(android.R.id.list);
         mListView.setAdapter(mAdapter);
@@ -82,12 +82,12 @@ public class ListViewFragment extends BaseViewPagerFragment
 
     @Override public void onResume() {
         super.onResume();
-//        mainFoodPresenter.resume();
+        mainFoodPresenter.resume();
     }
 
     @Override public void onPause() {
         super.onPause();
-//        mainFoodPresenter.pause();
+        mainFoodPresenter.pause();
     }
 
     @Override
