@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.VoPicPar;
 import com.dianxun.holyn.lucky.view.fragment.Main.ListViewFragment;
+import com.dianxun.holyn.lucky.view.fragment.Main.MainRVGridFragment;
 import com.dianxun.holyn.lucky.view.module.MainActivityModule;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.SlidingTabLayout;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.TouchCallbackLayout;
@@ -215,10 +216,6 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
 
     @Override
     public boolean isViewBeingDragged(MotionEvent event) {
-        System.out.println("====> mScrollableListenerArrays.size() = " + mScrollableListenerArrays.size());
-        System.out.println("====> viewpager.getCurrentItem() = " + viewpager.getCurrentItem());
-        System.out.println("====> mScrollableListenerArrays.valueAt(viewpager.getCurrentItem()) = " + mScrollableListenerArrays.valueAt(viewpager.getCurrentItem()));
-
         return mScrollableListenerArrays.valueAt(viewpager.getCurrentItem()).isViewBeingDragged(event);
     }
 
@@ -337,9 +334,9 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         @Override
         public Fragment getItem(int position) {
 
-//            if (position == 3) {
-//                return ScrollViewFragment.newInstance(position);
-//            }
+            if (position == 0 || position == 2) {
+                return MainRVGridFragment.newInstance(position);
+            }
             return ListViewFragment.newInstance(position);
         }
 

@@ -48,9 +48,6 @@ public class ListViewFragment extends BaseViewPagerFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mainFoodPresenter.setView(this);
-
         String[] listArrays = null;
         switch (mFragmentIndex) {
             case 1:
