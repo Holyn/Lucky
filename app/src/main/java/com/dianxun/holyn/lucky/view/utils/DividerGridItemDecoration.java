@@ -1,4 +1,4 @@
-package com.dianxun.holyn.lucky.view.fragment;
+package com.dianxun.holyn.lucky.view.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
