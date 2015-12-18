@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
     <ImageView
         android:id="@+id/iv_food"
         android:layout_width="wrap_content"
@@ -12,34 +13,52 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apple ipad air2 64G WIFI "/>
+        android:textSize="@dimen/text_size_16"
+        android:textColor="@color/black"
+        android:text="Apple ipad air2 64G WIFI 好好啊啊啊啊啊"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
         android:orientation="horizontal">
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/keng"
+                android:id="@+id/keng_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="剩余坑位：98%"/>
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/text_size_12"
+                android:text="剩余坑位："/>
+            <TextView
+                android:id="@+id/tv_keng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/keng_title"
+                android:textSize="@dimen/text_size_12"
+                android:textColor="@color/text_kengwei"
+                android:text="98%"/>
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="100dp"
                 android:layout_height="20sp"
-                android:layout_below="@+id/keng"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/keng_title"
                 android:max="100"
                 android:progress="50"
                 android:id="@+id/progressBar"/>
-        </LinearLayout>
+        </RelativeLayout>
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="68dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/shape_red_stroke_btn"
+            android:textColor="@color/btn_duobao_color"
+            android:textSize="@dimen/text_size_16"
             android:text="夺宝"/>
 
     </LinearLayout>

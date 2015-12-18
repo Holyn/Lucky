@@ -5,6 +5,16 @@
     <color name="colorAccent">#FF4081</color>
     <color name="red">#BC1717</color>
 
+    <color name="toolbar_color">#cb3852</color>
+    <color name="main_viewpager_title_color_select">#c23957</color>
+    <color name="btn_duobao_color">#c61f3d</color>
+    <color name="text_kengwei">#567a92</color>
+    <color name="main_tab_1_color">#cb364c</color>
+    <color name="main_tab_2_color">#ec83ae</color>
+    <color name="main_tab_3_color">#9c65a6</color>
+    <color name="main_tab_4_color">#f2ad22</color>
+    <color name="main_tab_5_color">#bd721f</color>
+
     <color name="black">#000000</color>
     <color name="black_trans_50">#80000000</color>
     <color name="white">#ffffff</color>

@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red">
+        android:background="@color/toolbar_color">
 
         <TextView
             android:layout_width="wrap_content"
@@ -149,7 +149,7 @@
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/main_menu_btn_1"
                         android:gravity="center_horizontal"
-                        android:textColor="@color/red"
+                        android:textColor="@color/dim_gray"
                         android:textSize="@dimen/text_size_14"
                         android:text="分类" />
 
@@ -159,7 +159,7 @@
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/main_menu_btn_2"
                         android:gravity="center_horizontal"
-                        android:textColor="@color/red"
+                        android:textColor="@color/dim_gray"
                         android:textSize="@dimen/text_size_14"
                         android:text="10元专区" />
 
@@ -169,7 +169,7 @@
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/main_menu_btn_3"
                         android:gravity="center_horizontal"
-                        android:textColor="@color/red"
+                        android:textColor="@color/dim_gray"
                         android:textSize="@dimen/text_size_14"
                         android:text="人气" />
 
@@ -179,7 +179,7 @@
                         android:layout_weight="1"
                         android:drawableTop="@mipmap/main_menu_btn_4"
                         android:gravity="center_horizontal"
-                        android:textColor="@color/red"
+                        android:textColor="@color/dim_gray"
                         android:textSize="@dimen/text_size_14"
                         android:text="常见问题" />
                 </LinearLayout>
@@ -224,7 +224,7 @@
             android:layout_weight="1"
             android:drawableTop="@mipmap/main_tab_btn_1"
             android:gravity="center_horizontal"
-            android:textColor="@color/red"
+            android:textColor="@color/main_tab_1_color"
             android:textSize="@dimen/text_size_14"
             android:text="夺宝" />
 
@@ -234,7 +234,7 @@
             android:layout_weight="1"
             android:drawableTop="@mipmap/main_tab_btn_2"
             android:gravity="center_horizontal"
-            android:textColor="@color/red"
+            android:textColor="@color/main_tab_2_color"
             android:textSize="@dimen/text_size_14"
             android:text="最新揭晓" />
 
@@ -244,7 +244,7 @@
             android:layout_weight="1"
             android:drawableTop="@mipmap/main_tab_btn_3"
             android:gravity="center_horizontal"
-            android:textColor="@color/red"
+            android:textColor="@color/main_tab_3_color"
             android:textSize="@dimen/text_size_14"
             android:text="晒单" />
 
@@ -254,7 +254,7 @@
             android:layout_weight="1"
             android:drawableTop="@mipmap/main_tab_btn_4"
             android:gravity="center_horizontal"
-            android:textColor="@color/red"
+            android:textColor="@color/main_tab_4_color"
             android:textSize="@dimen/text_size_14"
             android:text="房间" />
 
@@ -264,7 +264,7 @@
             android:layout_weight="1"
             android:drawableTop="@mipmap/main_tab_btn_5"
             android:gravity="center_horizontal"
-            android:textColor="@color/red"
+            android:textColor="@color/main_tab_5_color"
             android:textSize="@dimen/text_size_14"
             android:text="我" />
 

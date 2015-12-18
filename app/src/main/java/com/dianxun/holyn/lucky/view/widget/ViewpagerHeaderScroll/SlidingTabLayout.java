@@ -209,7 +209,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             if (tabTitleView == null && TextView.class.isInstance(tabView)) {
                 tabTitleView = (TextView) tabView;
                 if (i == 0) {
-                    tabTitleView.setTextColor(getResources().getColor(R.color.red));
+                    tabTitleView.setTextColor(getResources().getColor(R.color.main_viewpager_title_color_select));
                 }
             }
 
@@ -305,7 +305,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 scrollToTab(position, 0);
             }
 
-            ((TextView)mTabStrip.getChildAt(position)).setTextColor(getResources().getColor(R.color.red));
+            ((TextView)mTabStrip.getChildAt(position)).setTextColor(getResources().getColor(R.color.main_viewpager_title_color_select));
             for (int i = 0; i < mTabStrip.getChildCount(); i++) {
                 mTabStrip.getChildAt(i).setSelected(position == i);
                 if (i != position) {
