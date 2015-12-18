@@ -19,13 +19,11 @@ import org.xutils.x;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 /**
  * Created by holyn on 2015/12/10.
  */
 
-@Singleton
 public class MainFoodPresenter extends Presenter{
     
     private FoodPar foodPar;
@@ -58,32 +56,19 @@ public class MainFoodPresenter extends Presenter{
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-//                Toast.makeText(x.app(), result, Toast.LENGTH_LONG).show();
-
-                System.out.println(result);
-
                 List<FoodPar> foodParList = null;
                 try {
                     JsonParser parser = new JsonParser();
                     JsonObject jsonObject = parser.parse(result).getAsJsonObject();
-
                     JsonElement listEle = jsonObject.get("list");
-//                    System.out.println("====>listEle = "+listEle);
                     if (listEle.isJsonArray()){
-                        System.out.println("====>listEle.isJsonArray()");
                         JsonArray jsonArray = listEle.getAsJsonArray();
                         java.lang.reflect.Type type = new TypeToken<List<FoodPar>>() {}.getType();
                         foodParList = new Gson().fromJson(jsonArray.toString(), type);
-
-                        System.out.println("====》 列表长度 = "+foodParList.size());
-
                         view.successLoading(foodParList);
-
                     } else {
 
                     }
-
-
                 }catch (Exception e){
                     System.out.println(e);
                 }

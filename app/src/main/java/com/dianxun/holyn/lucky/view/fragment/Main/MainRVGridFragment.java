@@ -12,7 +12,6 @@ import com.dianxun.holyn.lucky.presenter.mainactivity.MainFoodPresenter;
 import com.dianxun.holyn.lucky.view.utils.DividerGridItemDecoration;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.delegate.RecycleViewDelegate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,7 +26,6 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
 
     private RecyclerView recyclerView;
     private MainFoodRecyclerViewAdapter recyclerViewAdapter;
-    private List<FoodPar> foodParList = new ArrayList<FoodPar>();
     private RecycleViewDelegate recycleViewDelegate = new RecycleViewDelegate();
 
     public static MainRVGridFragment newInstance(int index) {
@@ -50,11 +48,11 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        for (int i = 0 ; i < 19 ;i++){
-            FoodPar foodPar = new FoodPar();
-            foodPar.setName(i+"-Holyn");
-            foodParList.add(foodPar);
-        }
+//        for (int i = 0 ; i < 19 ;i++){
+//            FoodPar foodPar = new FoodPar();
+//            foodPar.setName(i+"-Holyn");
+//            foodParList.add(foodPar);
+//        }
     }
 
     @Override
@@ -73,8 +71,7 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
-        recyclerViewAdapter.addNewDatas(foodParList);
-        recyclerView.smoothScrollToPosition(0);
+        mainFoodPresenter.loadFoodList();
     }
 
     @Override public void onResume() {
@@ -109,6 +106,9 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
 
     @Override
     public void successLoading(List<FoodPar> foodParList) {
-
+        System.out.println("====> successLoading_"+getArguments().getInt(BUNDLE_FRAGMENT_INDEX)+" -- foodParList.size() = "+foodParList.size());
+        recyclerViewAdapter.addNewDatas(foodParList);
+        recyclerView.smoothScrollToPosition(0);
+        recyclerViewAdapter.notifyDataSetChanged();
     }
 }

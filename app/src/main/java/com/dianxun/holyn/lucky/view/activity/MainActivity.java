@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.VoPicPar;
-import com.dianxun.holyn.lucky.view.fragment.Main.ListViewFragment;
 import com.dianxun.holyn.lucky.view.fragment.Main.MainRVGridFragment;
 import com.dianxun.holyn.lucky.view.module.MainActivityModule;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.SlidingTabLayout;
@@ -123,11 +122,11 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
 //        mHeaderLayoutView = findViewById(R.id.header);
 
 //        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);
-        //slidingTabLayout.setDistributeEvenly(true);
+//        slidingTabLayout.setDistributeEvenly(true);
 
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
-
         slidingTabLayout.setViewPager(viewpager);
+
 
         ViewCompat.setTranslationY(viewpager, mHeaderHeight);
 
@@ -325,6 +324,7 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         mScrollableListenerArrays.remove(position);
     }
 
+    /** 商品页面切换viewpager适配器 */
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 
         public ViewPagerAdapter(FragmentManager fm) {
@@ -333,11 +333,7 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
 
         @Override
         public Fragment getItem(int position) {
-
-            if (position == 0 || position == 2) {
-                return MainRVGridFragment.newInstance(position);
-            }
-            return ListViewFragment.newInstance(position);
+            return MainRVGridFragment.newInstance(position);
         }
 
         @Override

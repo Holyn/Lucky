@@ -46,15 +46,17 @@ public class RecycleViewDelegate implements ViewDelegate{
         if (layoutManager instanceof LinearLayoutManager){
             LinearLayoutManager linearLayoutManager = (LinearLayoutManager)layoutManager;
             if (linearLayoutManager.findFirstCompletelyVisibleItemPosition() == 0){
-                final View firstVisibleChild = recyclerView.getChildAt(0);
-                ready = firstVisibleChild != null
-                        && firstVisibleChild.getTop() >= recyclerView.getPaddingTop();
+//                final View firstVisibleChild = recyclerView.getChildAt(0);
+//                ready = firstVisibleChild != null
+//                        && firstVisibleChild.getTop() >= recyclerView.getPaddingTop();
+                ready = true;
             }
         }else if (layoutManager instanceof GridLayoutManager){
             GridLayoutManager gridLayoutManager = (GridLayoutManager)layoutManager;
-            final View firstVisibleChild = recyclerView.getChildAt(0);
-            ready = firstVisibleChild != null
-                    && firstVisibleChild.getTop() >= recyclerView.getPaddingTop();
+//            final View firstVisibleChild = recyclerView.getChildAt(0);
+//            ready = firstVisibleChild != null
+//                    && firstVisibleChild.getTop() >= recyclerView.getPaddingTop();
+            ready = true;
         }
 
         return ready;
