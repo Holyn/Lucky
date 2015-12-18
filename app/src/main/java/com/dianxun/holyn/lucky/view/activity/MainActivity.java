@@ -103,14 +103,6 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         super.onCreate(savedInstanceState);
         initToolBar();
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mainFoodPresenter.loadFoodList();
-//            }
-//        });
-
-
         mTouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
         mTabHeight = getResources().getDimensionPixelSize(R.dimen.tabs_height);
         mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.viewpager_header_height);
@@ -118,11 +110,6 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         mViewPagerHeaderHelper = new ViewPagerHeaderHelper(this, this);
 
         layoutHeaderScroll.setTouchEventListener(this);
-
-//        mHeaderLayoutView = findViewById(R.id.header);
-
-//        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);
-//        slidingTabLayout.setDistributeEvenly(true);
 
         viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
         slidingTabLayout.setViewPager(viewpager);
@@ -179,6 +166,7 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         for (int i = 0; i < 4; i++) {
             View view = LayoutInflater.from(getApplicationContext()).inflate(R.layout.imageview_ad, null);
             ImageView imageView = (ImageView) view.findViewById(R.id.iv_ad);
+            imageView.setTag(i);
             imageViews.add(imageView);
             views.add(view);
         }
@@ -199,6 +187,16 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
             }else if (i == 3){
                 Picasso.with(MainActivity.this).load(R.mipmap.iv_test_ad).into(imageViews.get(3));
             }
+        }
+
+        for (int i = 0; i < 4; i++){
+            ImageView imageView = imageViews.get(i);
+            imageView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    System.out.println("====> 点击了 "+v.getTag());
+                }
+            });
         }
     }
 
