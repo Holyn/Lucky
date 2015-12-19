@@ -5,10 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="red">#BC1717</color>
 
-    <color name="toolbar_color">#cb3852</color>
+    <color name="toolbar_color">#e51c23</color><!-- cb3852 -->
     <color name="main_viewpager_title_color_select">#c23957</color>
     <color name="btn_duobao_color">#c61f3d</color>
-    <color name="text_sale_progress">#567a92</color>
+    <color name="text_sale_progress">#ff9800</color><!-- 567a92 -->
     <color name="main_tab_1_color">#cb364c</color>
     <color name="main_tab_2_color">#ec83ae</color>
     <color name="main_tab_3_color">#9c65a6</color>
@@ -20,6 +20,8 @@
     <color name="white">#ffffff</color>
     <color name="grey_divide">#E0E1E0</color>
 
+    <!-- 深红色 -->
+    <color name="dark_red">#b0120a</color>
     <!-- Silver 银灰色 -->
     <color name="silver">#C0C0C0</color>
     <!-- LightGrey 浅灰色 -->

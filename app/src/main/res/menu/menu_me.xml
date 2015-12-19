@@ -3,9 +3,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context=".MainActivity">
 
-    <item android:id="@+id/action_more"
+    <item android:id="@+id/action_setting"
           android:title="@string/app_name"
           android:orderInCategory="80"
-          android:icon="@mipmap/icon_menus"
+          android:icon="@mipmap/ic_settings"
           app:showAsAction="always" />
 </menu>

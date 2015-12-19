@@ -1,5 +1,6 @@
 package com.dianxun.holyn.lucky.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -146,16 +147,15 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
     }
 
     private void initToolBar() {
-//        toolbar.setTitle("holyn");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        toolbar.setNavigationIcon(R.drawable.ic_menu_search_mtrl_alpha);
+        toolbar.setNavigationIcon(R.mipmap.ic_search_api_holo_dark);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.action_more) {
-                    System.out.println("====》 点击action_more");
+                    startActivity(new Intent(MainActivity.this, MeActivity.class));
                 }
                 return true;
             }
