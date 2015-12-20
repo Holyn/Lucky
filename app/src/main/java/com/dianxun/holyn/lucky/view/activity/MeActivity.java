@@ -11,15 +11,15 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeMemberCenterFragment;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeSettingFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeMemberCenterFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeSettingFragment;
 import com.dianxun.holyn.lucky.view.module.MeActivityModule;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by holyn on 2015/12/18.
@@ -37,6 +37,7 @@ public class MeActivity extends BaseActivity {
     private FragmentManager fragmentManager;
     private MeMemberCenterFragment meMemberCenterFragment = null;
     private MeSettingFragment meSettingFragment = null;
+    private MeLoginFragment meLoginFragment = null;
 
     @Override
     protected int getLayoutResId() {
@@ -115,6 +116,16 @@ public class MeActivity extends BaseActivity {
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fl_container, meSettingFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void showMeLoginFragment(){
+        if (meLoginFragment == null){
+            meLoginFragment = MeLoginFragment.newInstance();
+        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_container, meLoginFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

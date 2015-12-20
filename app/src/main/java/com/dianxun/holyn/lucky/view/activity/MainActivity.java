@@ -25,7 +25,7 @@ import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.VoPicPar;
-import com.dianxun.holyn.lucky.view.fragment.Main.MainRVGridFragment;
+import com.dianxun.holyn.lucky.view.fragment.main.MainRVGridFragment;
 import com.dianxun.holyn.lucky.view.module.MainActivityModule;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.SlidingTabLayout;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.TouchCallbackLayout;
