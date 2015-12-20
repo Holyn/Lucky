@@ -32,6 +32,7 @@ import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.TouchCallbackLa
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.tools.ScrollableFragmentListener;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.tools.ScrollableListener;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.tools.ViewPagerHeaderHelper;
+import com.dianxun.holyn.lucky.view.widget.webview.CustomWebViewActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -195,6 +196,10 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
                 @Override
                 public void onClick(View v) {
                     System.out.println("====> 点击了 "+v.getTag());
+                    Intent intent = new Intent(MainActivity.this, CustomWebViewActivity.class);
+                    intent.putExtra(CustomWebViewActivity.KEY_URL_FULL,"http://baike.baidu.com/view/12858039.htm");
+                    intent.putExtra(CustomWebViewActivity.KEY_TITLE,"测试页面");
+                    startActivity(intent);
                 }
             });
         }
