@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
-import com.dianxun.holyn.lucky.presenter.mainactivity.MainFoodPresenter;
+import com.dianxun.holyn.lucky.presenter.main.MainFoodPresenter;
 import com.dianxun.holyn.lucky.view.utils.DividerGridItemDecoration;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.delegate.RecycleViewDelegate;
 

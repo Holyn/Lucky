@@ -71,6 +71,12 @@ public class MeMemberCenterFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MeActivity)getActivity()).showMeLoginFragment();
+            }
+        });
     }
 
     @Override
