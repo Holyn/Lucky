@@ -16,7 +16,10 @@
     <color name="main_tab_5_color">#bd721f</color>
 
     <color name="black">#000000</color>
+    <color name="black_trans_25">#40000000</color>
     <color name="black_trans_50">#80000000</color>
+    <color name="black_trans_70">#b4000000</color>
+    <color name="black_trans_80">#cc000000</color>
     <color name="white">#ffffff</color>
     <color name="white_trans_214">#d6ffffff</color>
     <color name="grey_divide">#E0E1E0</color>
