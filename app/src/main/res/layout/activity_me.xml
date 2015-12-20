@@ -18,7 +18,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_size_20" />
     </android.support.v7.widget.Toolbar>
     <FrameLayout
         android:id="@+id/fl_container"

@@ -1,6 +1,8 @@
 package com.dianxun.holyn.lucky.view.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,6 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
+import com.dianxun.holyn.lucky.view.fragment.Me.MeMemberCenterFragment;
+import com.dianxun.holyn.lucky.view.fragment.Me.MeSettingFragment;
 import com.dianxun.holyn.lucky.view.module.MeActivityModule;
 
 import java.util.LinkedList;
@@ -30,6 +34,10 @@ public class MeActivity extends BaseActivity {
 
     private Menu mMenu;//控制菜单的显示或者隐藏
 
+    private FragmentManager fragmentManager;
+    private MeMemberCenterFragment meMemberCenterFragment = null;
+    private MeSettingFragment meSettingFragment = null;
+
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_me;
@@ -46,9 +54,8 @@ public class MeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initToolBar();
-
-        setToolBarTitle("Holyn");
-        setMenuSettingEnable(true);
+        fragmentManager = getSupportFragmentManager();
+        showMeMemberCenterFragment();
     }
 
     private void initToolBar() {
@@ -86,13 +93,30 @@ public class MeActivity extends BaseActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_setting:
-                        System.out.println("====》 点击action_setting");
-                        hiddenMenu();
+                        System.out.println("====》 action_setting");
+                        showMeSettingFragment();
                         break;
                 }
                 return true;
             }
         });
+    }
+
+    private void showMeMemberCenterFragment(){
+        if (meMemberCenterFragment == null){
+            meMemberCenterFragment = MeMemberCenterFragment.newInstance();
+        }
+        fragmentManager.beginTransaction().replace(R.id.fl_container, meMemberCenterFragment).commit();
+    }
+
+    public void showMeSettingFragment(){
+        if (meSettingFragment == null){
+            meSettingFragment = MeSettingFragment.newInstance();
+        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_container, meSettingFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     @Override

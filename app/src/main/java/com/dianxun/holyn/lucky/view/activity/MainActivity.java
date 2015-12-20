@@ -179,13 +179,13 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
     private void getADPicList(){
         for (int i = 0; i < 4; i++){
             if (i == 0){
-                Picasso.with(MainActivity.this).load(R.mipmap.iv_test_ad).into(imageViews.get(0));
+                Picasso.with(MainActivity.this).load(R.mipmap.test_iv_1).into(imageViews.get(0));
             }else if (i == 1){
-                Picasso.with(MainActivity.this).load(R.mipmap.iv_test_ad).into(imageViews.get(1));
+                Picasso.with(MainActivity.this).load(R.mipmap.test_iv_2).into(imageViews.get(1));
             }else if (i == 2){
-                Picasso.with(MainActivity.this).load(R.mipmap.iv_test_ad).into(imageViews.get(2));
+                Picasso.with(MainActivity.this).load(R.mipmap.test_iv_1).into(imageViews.get(2));
             }else if (i == 3){
-                Picasso.with(MainActivity.this).load(R.mipmap.iv_test_ad).into(imageViews.get(3));
+                Picasso.with(MainActivity.this).load(R.mipmap.test_iv_3).into(imageViews.get(3));
             }
         }
 

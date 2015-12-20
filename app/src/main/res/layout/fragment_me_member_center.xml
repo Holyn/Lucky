@@ -1,9 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".view.activity.MeActivity">
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/test_iv_1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white_trans_214">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/riv_header"
+            android:layout_width="114dp"
+            android:layout_height="114dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/iv_header_default"
+            app:riv_border_color="@color/dark_grey"
+            app:riv_border_width="1dip"
+            app:riv_corner_radius="100dip"
+            app:riv_oval="false" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="144dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/shape_red_solid_btn"
+            android:text="登 录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_menu_row_1"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/iv_bg"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/ic_me_menu_1"
+                android:text="购物车"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey_divide" />
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/ic_me_menu_2"
+                android:text="夺宝记录"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey_divide" />
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/ic_me_menu_3"
+                android:text="中奖记录"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll_menu_row_1"
+        android:background="@color/grey_divide" />
+
+    <LinearLayout
+        android:id="@+id/ll_menu_row_2"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/v_line"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/ic_me_menu_4"
+                android:text="消息中心"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey_divide" />
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTop="@mipmap/ic_me_menu_5"
+                android:text="分享"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey_divide" />
+
+        <RelativeLayout
+            android:id="@+id/rl_menu_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawablePadding="10dp"
+                android:drawableTintMode="screen"
+                android:drawableTop="@mipmap/ic_me_menu_6"
+                android:text="充值记录"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ll_menu_row_2"
+        android:background="@color/grey_divide" />
+
+</RelativeLayout>
