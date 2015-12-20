@@ -11,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeLoginFragment;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeMemberCenterFragment;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeSettingFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeMemberCenterFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeSettingFragment;
 import com.dianxun.holyn.lucky.view.module.MeActivityModule;
 
 import java.util.LinkedList;

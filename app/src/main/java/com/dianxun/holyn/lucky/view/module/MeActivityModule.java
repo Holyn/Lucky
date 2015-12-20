@@ -1,7 +1,7 @@
 package com.dianxun.holyn.lucky.view.module;
 
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
-import com.dianxun.holyn.lucky.view.fragment.Me.MeLoginFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
 
 import dagger.Module;
 
