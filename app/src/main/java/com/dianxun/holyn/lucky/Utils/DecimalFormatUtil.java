@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 /**
  * Created by holyn on 2015/12/18.
  */
-public class FormatUtil {
+public class DecimalFormatUtil {
     /** 求小数点后两位 要四舍五入 */
     public static String getAfterTwo(double num){
         DecimalFormat df   = new DecimalFormat();
