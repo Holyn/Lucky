@@ -1,4 +1,4 @@
-package com.dianxun.holyn.lucky.presenter.mainactivity;
+package com.dianxun.holyn.lucky.presenter.me;
 
 import android.widget.Toast;
 
@@ -24,13 +24,13 @@ import javax.inject.Inject;
  * Created by holyn on 2015/12/10.
  */
 
-public class MainFoodPresenter extends Presenter{
-    
+public class MeLoginPresenter extends Presenter{
+
     private FoodPar foodPar;
     private View view;
 
     @Inject
-    public MainFoodPresenter() { }
+    public MeLoginPresenter() { }
 
     @Override
     public void initialize() {
@@ -51,7 +51,7 @@ public class MainFoodPresenter extends Presenter{
         this.view = view;
     }
 
-    public void loadFoodList(){
+    public void doLogin(String acount, String password){
         RequestParams params = new RequestParams(HttpURL.HOME_FOOD_LIST);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
