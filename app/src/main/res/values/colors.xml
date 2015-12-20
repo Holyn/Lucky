@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="red">#BC1717</color>
+    <color name="transparent">#00000000</color>
 
     <color name="toolbar_color">#e51c23</color><!-- cb3852 -->
     <color name="main_viewpager_title_color_select">#c23957</color>
@@ -42,4 +43,8 @@
     <color name="dim_gray">#696969</color>
     <!-- SaddleBrown 重褐色/马鞍棕色 -->
     <color name="saddle_brown">#8B4513</color>
+
+    <color name="primary">#3C515C</color>
+    <color name="primary_dark">#142E3C</color>
+    <color name="accent">#40C4FF</color>
 </resources>

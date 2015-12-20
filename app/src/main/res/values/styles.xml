@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/red</item>
         <item name="colorPrimaryDark">@color/red</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/dark_red</item>
     </style>
 
     <style name="classify_menu_style">

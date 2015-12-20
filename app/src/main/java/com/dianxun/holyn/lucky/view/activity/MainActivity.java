@@ -228,19 +228,22 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         tvCenterMenu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
             }
         });
         tvCenterMenu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
             }
         });
         tvCenterMenu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, CustomWebViewActivity.class);
+                intent.putExtra(CustomWebViewActivity.KEY_URL_FULL, "http://baike.baidu.com/view/12858039.htm");
+                intent.putExtra(CustomWebViewActivity.KEY_TITLE, "测试页面");
+                startActivity(intent);
             }
         });
     }

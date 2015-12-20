@@ -1,5 +1,6 @@
 package com.dianxun.holyn.lucky.view.fragment.classify;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.view.activity.ClassifyActivity;
+import com.dianxun.holyn.lucky.view.activity.ClassifyContentListActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -71,7 +73,55 @@ public class ClassifyFragment extends Fragment {
         ll01.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("====> ll01__onClick");
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll02.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll03.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll05.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll06.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll07.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll08.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+            }
+        });
+        ll09.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
             }
         });
     }

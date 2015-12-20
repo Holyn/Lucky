@@ -1,9 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_setting"
+    <item android:id="@+id/action_add"
           android:title="@string/app_name"
           android:orderInCategory="80"
-          android:icon="@mipmap/ic_settings"
+          android:icon="@mipmap/ic_add"
           app:showAsAction="always" />
 </menu>

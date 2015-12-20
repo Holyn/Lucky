@@ -41,4 +41,6 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.2.1'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.0'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.0'
 }

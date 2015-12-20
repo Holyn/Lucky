@@ -35,6 +35,8 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment {
 
+  private View rootView;
+
   @Override public void onAttach(Activity activity) {
     super.onAttach(activity);
     injectDependencies();
@@ -42,7 +44,8 @@ public abstract class BaseFragment extends Fragment {
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
-    return inflater.inflate(getFragmentLayout(), container, false);
+    rootView = inflater.inflate(getFragmentLayout(), container, false);
+    return rootView;
   }
 
   @Override public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -56,6 +59,10 @@ public abstract class BaseFragment extends Fragment {
    * inflate in this method when extends BaseFragment.
    */
   protected abstract int getFragmentLayout();
+
+  public View getRootView(){
+    return rootView;
+  }
 
   /**
    * Replace every field annotated using @Inject annotation with the provided dependency specified

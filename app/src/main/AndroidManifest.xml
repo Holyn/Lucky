@@ -32,7 +32,11 @@
         <activity
             android:name=".view.widget.picturesviewpager.PicturesViewPagerActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.activity.ClassifyActivity"
+        <activity
+            android:name=".view.activity.ClassifyActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.ClassifyContentListActivity"
             android:screenOrientation="portrait"/>
     </application>
 
