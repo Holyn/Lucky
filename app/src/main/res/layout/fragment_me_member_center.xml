@@ -58,7 +58,9 @@
             android:id="@+id/rl_menu_1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,7 +83,9 @@
             android:id="@+id/rl_menu_2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,7 +108,9 @@
             android:id="@+id/rl_menu_3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -138,7 +144,9 @@
             android:id="@+id/rl_menu_4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -161,7 +169,9 @@
             android:id="@+id/rl_menu_5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -184,7 +194,9 @@
             android:id="@+id/rl_menu_6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="@color/selector_white_lightgray_70"
+            android:clickable="true">
 
             <TextView
                 android:layout_width="wrap_content"

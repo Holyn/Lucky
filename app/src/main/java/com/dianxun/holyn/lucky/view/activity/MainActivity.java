@@ -74,6 +74,15 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
     @Bind(R.id.tv_title)
     TextView tvTitle;//广告标题
 
+    @Bind(R.id.tv_center_menu_1)//分类
+    TextView tvCenterMenu1;
+    @Bind(R.id.tv_center_menu_2)//10元专区
+    TextView tvCenterMenu2;
+    @Bind(R.id.tv_center_menu_3)//人气
+    TextView tvCenterMenu3;
+    @Bind(R.id.tv_center_menu_4)//常见问题
+    TextView tvCenterMenu4;
+
 
     /* 滚动图片  开始 */
     private BaseAdAdapter pagerAdapter;
@@ -122,6 +131,7 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         initViewpagerAD();
         getADPicList();
 
+        initCenterMenu();
     }
 
     @Override
@@ -177,32 +187,62 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         viewpagerAd.setOnPageChangeListener(new MyOnPageChangeListener());
     }
 
-    private void getADPicList(){
-        for (int i = 0; i < 4; i++){
-            if (i == 0){
+    private void getADPicList() {
+        for (int i = 0; i < 4; i++) {
+            if (i == 0) {
                 Picasso.with(MainActivity.this).load(R.mipmap.test_iv_1).into(imageViews.get(0));
-            }else if (i == 1){
+            } else if (i == 1) {
                 Picasso.with(MainActivity.this).load(R.mipmap.test_iv_2).into(imageViews.get(1));
-            }else if (i == 2){
+            } else if (i == 2) {
                 Picasso.with(MainActivity.this).load(R.mipmap.test_iv_1).into(imageViews.get(2));
-            }else if (i == 3){
+            } else if (i == 3) {
                 Picasso.with(MainActivity.this).load(R.mipmap.test_iv_3).into(imageViews.get(3));
             }
         }
 
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             ImageView imageView = imageViews.get(i);
-            imageView.setOnClickListener(new View.OnClickListener(){
+            imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    System.out.println("====> 点击了 "+v.getTag());
+                    System.out.println("====> 点击了 " + v.getTag());
                     Intent intent = new Intent(MainActivity.this, CustomWebViewActivity.class);
-                    intent.putExtra(CustomWebViewActivity.KEY_URL_FULL,"http://baike.baidu.com/view/12858039.htm");
-                    intent.putExtra(CustomWebViewActivity.KEY_TITLE,"测试页面");
+                    intent.putExtra(CustomWebViewActivity.KEY_URL_FULL, "http://baike.baidu.com/view/12858039.htm");
+                    intent.putExtra(CustomWebViewActivity.KEY_TITLE, "测试页面");
                     startActivity(intent);
                 }
             });
         }
+    }
+
+    /**
+     * 初始化中间的菜单按钮
+     */
+    private void initCenterMenu() {
+        tvCenterMenu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ClassifyActivity.class));
+            }
+        });
+        tvCenterMenu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        tvCenterMenu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        tvCenterMenu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -327,7 +367,9 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         mScrollableListenerArrays.remove(position);
     }
 
-    /** 商品页面切换viewpager适配器 */
+    /**
+     * 商品页面切换viewpager适配器
+     */
     private class ViewPagerAdapter extends FragmentPagerAdapter {
 
         public ViewPagerAdapter(FragmentManager fm) {
