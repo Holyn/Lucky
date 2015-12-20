@@ -22,4 +22,14 @@
         <item name="android:paddingTop">6dp</item>
     </style>
 
+    <style name="main_bottom_tab_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:background">@color/selector_white_lightgray_70</item>
+        <item name="android:clickable">true</item>
+    </style>
+
 </resources>

@@ -231,54 +231,39 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:id="@+id/tv_bottom_tab_1"
             android:drawableTop="@mipmap/main_tab_btn_1"
-            android:gravity="center_horizontal"
             android:textColor="@color/main_tab_1_color"
-            android:textSize="@dimen/text_size_14"
-            android:text="夺宝" />
+            android:text="夺宝"
+            style="@style/main_bottom_tab_style"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:id="@+id/tv_bottom_tab_2"
             android:drawableTop="@mipmap/main_tab_btn_2"
-            android:gravity="center_horizontal"
             android:textColor="@color/main_tab_2_color"
-            android:textSize="@dimen/text_size_14"
-            android:text="最新揭晓" />
+            android:text="最新揭晓"
+            style="@style/main_bottom_tab_style" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:id="@+id/tv_bottom_tab_3"
             android:drawableTop="@mipmap/main_tab_btn_3"
-            android:gravity="center_horizontal"
             android:textColor="@color/main_tab_3_color"
-            android:textSize="@dimen/text_size_14"
-            android:text="晒单" />
+            android:text="晒单"
+            style="@style/main_bottom_tab_style"  />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:id="@+id/tv_bottom_tab_4"
             android:drawableTop="@mipmap/main_tab_btn_4"
-            android:gravity="center_horizontal"
             android:textColor="@color/main_tab_4_color"
-            android:textSize="@dimen/text_size_14"
-            android:text="房间" />
+            android:text="房间"
+            style="@style/main_bottom_tab_style" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:id="@+id/tv_bottom_tab_5"
             android:drawableTop="@mipmap/main_tab_btn_5"
-            android:gravity="center_horizontal"
             android:textColor="@color/main_tab_5_color"
-            android:textSize="@dimen/text_size_14"
-            android:text="我" />
+            android:text="我"
+            style="@style/main_bottom_tab_style"  />
 
     </LinearLayout>
 </RelativeLayout>

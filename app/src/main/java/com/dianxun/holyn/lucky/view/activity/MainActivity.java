@@ -75,13 +75,24 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
     TextView tvTitle;//广告标题
 
     @Bind(R.id.tv_center_menu_1)//分类
-    TextView tvCenterMenu1;
+            TextView tvCenterMenu1;
     @Bind(R.id.tv_center_menu_2)//10元专区
-    TextView tvCenterMenu2;
+            TextView tvCenterMenu2;
     @Bind(R.id.tv_center_menu_3)//人气
-    TextView tvCenterMenu3;
+            TextView tvCenterMenu3;
     @Bind(R.id.tv_center_menu_4)//常见问题
-    TextView tvCenterMenu4;
+            TextView tvCenterMenu4;
+
+    @Bind(R.id.tv_bottom_tab_1)//夺宝
+    TextView tvBottomTab1;
+    @Bind(R.id.tv_bottom_tab_2)//最新揭晓
+    TextView tvBottomTab2;
+    @Bind(R.id.tv_bottom_tab_3)//晒单
+    TextView tvBottomTab3;
+    @Bind(R.id.tv_bottom_tab_4)//房间
+    TextView tvBottomTab4;
+    @Bind(R.id.tv_bottom_tab_5)//我
+    TextView tvBottomTab5;
 
 
     /* 滚动图片  开始 */
@@ -132,6 +143,7 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         getADPicList();
 
         initCenterMenu();
+        initBottomTabs();
     }
 
     @Override
@@ -244,6 +256,39 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
                 intent.putExtra(CustomWebViewActivity.KEY_URL_FULL, "http://baike.baidu.com/view/12858039.htm");
                 intent.putExtra(CustomWebViewActivity.KEY_TITLE, "测试页面");
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void initBottomTabs(){
+        tvBottomTab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        tvBottomTab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
+            }
+        });
+        tvBottomTab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
+            }
+        });
+        tvBottomTab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
+            }
+        });
+        tvBottomTab5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MeActivity.class));
             }
         });
     }
