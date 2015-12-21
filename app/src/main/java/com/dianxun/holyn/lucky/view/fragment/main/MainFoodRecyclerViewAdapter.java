@@ -27,6 +27,12 @@ public class MainFoodRecyclerViewAdapter extends BGARecyclerViewAdapter<FoodPar>
     }
 
     @Override
+    protected void setItemChildListener(BGAViewHolderHelper viewHolderHelper) {
+        super.setItemChildListener(viewHolderHelper);
+        viewHolderHelper.setItemChildClickListener(R.id.btn_duobao);
+    }
+
+    @Override
     protected void fillData(BGAViewHolderHelper bgaViewHolderHelper, int i, FoodPar foodPar) {
         Picasso.with(mContext).load(HttpURL.URL_PIC_PRE+HttpURL.FOOD+foodPar.getPic()).into(bgaViewHolderHelper.getImageView(R.id.iv_food));
         bgaViewHolderHelper.setText(R.id.tv_title, foodPar.getName());

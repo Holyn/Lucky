@@ -52,7 +52,7 @@ public class MeLoginPresenter extends Presenter{
     }
 
     public void doLogin(String acount, String password){
-        RequestParams params = new RequestParams(HttpURL.HOME_FOOD_LIST);
+        RequestParams params = new RequestParams(HttpURL.FOOD_LIST);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

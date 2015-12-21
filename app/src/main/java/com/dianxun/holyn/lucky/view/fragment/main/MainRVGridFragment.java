@@ -1,14 +1,18 @@
 package com.dianxun.holyn.lucky.view.fragment.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
 import com.dianxun.holyn.lucky.presenter.main.MainFoodPresenter;
+import com.dianxun.holyn.lucky.view.activity.FoodDetailActivity;
 import com.dianxun.holyn.lucky.view.utils.DividerGridItemDecoration;
 import com.dianxun.holyn.lucky.view.widget.ViewpagerHeaderScroll.delegate.RecycleViewDelegate;
 
@@ -16,10 +20,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import cn.bingoogolapple.androidcommon.adapter.BGAOnItemChildClickListener;
+import cn.bingoogolapple.androidcommon.adapter.BGAOnRVItemClickListener;
+
 /**
  * Created by holyn on 2015/12/17.
  */
-public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFoodPresenter.View {
+public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFoodPresenter.View, BGAOnRVItemClickListener, BGAOnItemChildClickListener {
 
     @Inject
     MainFoodPresenter mainFoodPresenter;
@@ -64,6 +71,8 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
 
         recyclerView = (RecyclerView)getRootView().findViewById(R.id.base_recycleview);
         recyclerViewAdapter = new MainFoodRecyclerViewAdapter(recyclerView);
+        recyclerViewAdapter.setOnRVItemClickListener(this);
+        recyclerViewAdapter.setOnItemChildClickListener(this);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -72,6 +81,20 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
         mainFoodPresenter.loadFoodList();
+    }
+
+    @Override
+    public void onRVItemClick(ViewGroup viewGroup, View view, int i) {
+        startActivity(new Intent(getActivity(), FoodDetailActivity.class));
+    }
+
+    @Override
+    public void onItemChildClick(ViewGroup viewGroup, View view, int i) {
+        switch (view.getId()){
+            case R.id.btn_duobao:
+                Toast.makeText(getActivity(), "点击了夺宝按钮",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     @Override public void onResume() {

@@ -43,4 +43,5 @@ dependencies {
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
     compile 'com.ogaclejapan.smarttablayout:library:1.6.0'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.0'
+    compile 'cn.bingoogolapple:bga-banner:2.0.2'
 }

@@ -38,6 +38,9 @@
         <activity
             android:name=".view.activity.ClassifyContentListActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.FoodDetailActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
