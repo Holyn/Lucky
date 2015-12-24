@@ -53,6 +53,12 @@ public abstract class BaseFragment extends Fragment {
     injectViews(view);
   }
 
+  @Override
+  public void onDestroyView() {
+    super.onDestroyView();
+    ButterKnife.unbind(this);
+  }
+
   /**
    * Every fragment has to inflate a layout in the onCreateView method. We have added this method to
    * avoid duplicate all the inflate code in every fragment. You only have to return the layout to

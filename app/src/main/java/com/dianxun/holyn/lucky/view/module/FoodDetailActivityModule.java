@@ -2,6 +2,7 @@ package com.dianxun.holyn.lucky.view.module;
 
 import com.dianxun.holyn.lucky.view.activity.FoodDetailActivity;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
+import com.dianxun.holyn.lucky.view.fragment.food.FoodDetailFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
 
 import dagger.Module;
@@ -12,7 +13,7 @@ import dagger.Module;
 
 @Module(complete = false ,
         injects = {
-                FoodDetailActivity.class
+                FoodDetailActivity.class, FoodDetailFragment.class
         })
 public class FoodDetailActivityModule {
 

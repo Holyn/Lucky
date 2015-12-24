@@ -29,8 +29,6 @@ public class MeActivity extends BaseActivity {
     TextView tvToolbarTitle;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.fl_container)
-    FrameLayout flContainer;
 
     private Menu mMenu;//控制菜单的显示或者隐藏
 
