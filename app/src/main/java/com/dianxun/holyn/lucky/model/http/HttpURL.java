@@ -43,7 +43,7 @@ public class HttpURL {
      * 商品-房间列表
      * http://115.28.54.56/xingyun/index.php/Api/Food/listRoom
      */
-    public final static String FOOD_ROOM_LIST = URL_API_PRE + FOOD +"listRoom";
+    public final static String FOOD_ROOM_LIST = URL_API_PRE + FOOD +"listRoom/p/";
 
     /**
      * 商品-针对某个商品新建房间

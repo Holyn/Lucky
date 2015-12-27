@@ -276,13 +276,13 @@ public class MainActivity extends BaseActivity implements TouchCallbackLayout.To
         tvBottomTab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
+                startActivity(new Intent(MainActivity.this, OrderActivity.class));
             }
         });
         tvBottomTab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ClassifyContentListActivity.class));
+                startActivity(new Intent(MainActivity.this, RoomActivity.class));
             }
         });
         tvBottomTab5.setOnClickListener(new View.OnClickListener() {
