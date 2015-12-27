@@ -1,74 +1,52 @@
 package com.dianxun.holyn.lucky.view.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
-import com.dianxun.holyn.lucky.view.fragment.food.FoodDetailFragment;
 import com.dianxun.holyn.lucky.view.fragment.food.FoodDetailFragment2;
-import com.dianxun.holyn.lucky.view.module.FoodDetailActivityModule;
+import com.dianxun.holyn.lucky.view.module.BaseToolBarActivityModule;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.Bind;
-import cn.bingoogolapple.bgabanner.BGABanner;
-import cn.bingoogolapple.refreshlayout.BGAMoocStyleRefreshViewHolder;
-import cn.bingoogolapple.refreshlayout.BGARefreshLayout;
-import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
 
 /**
- * Created by holyn on 2015/12/21.
+ * Created by holtn on 2015/12/27.
  */
-public class FoodDetailActivity extends BaseActivity{
+public class BaseToolBarActivity extends BaseActivity {
     @Bind(R.id.tv_toolbar_title)
     TextView tvToolbarTitle;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
     private FragmentManager fragmentManager;
-    private FoodDetailFragment foodDetailFragment;
-    private FoodDetailFragment2 foodDetailFragment2;
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_me;
+        return R.layout.activity_base_tool_bar;
     }
 
     @Override
     protected List<Object> getModules() {
         LinkedList<Object> modules = new LinkedList<>();
-        modules.add(new FoodDetailActivityModule());
+        modules.add(new BaseToolBarActivityModule());
         return modules;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initToolBar();
         fragmentManager = getSupportFragmentManager();
-        showFoodDetailFragment2();
+        initToolBar();
     }
 
-    private void showFoodDetailFragment(){
-        if (foodDetailFragment == null){
-            foodDetailFragment = FoodDetailFragment.newInstance();
-        }
-        fragmentManager.beginTransaction().replace(R.id.fl_container, foodDetailFragment).commit();
-    }
-
-    private void showFoodDetailFragment2(){
-        if (foodDetailFragment2 == null){
-            foodDetailFragment2 = FoodDetailFragment2.newInstance();
-        }
-        fragmentManager.beginTransaction().replace(R.id.fl_container, foodDetailFragment2).commit();
+    protected FragmentManager getBaseFragmentManager(){
+        return this.fragmentManager;
     }
 
     public void setToolBarTitle(String title) {

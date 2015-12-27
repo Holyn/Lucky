@@ -1,25 +1,11 @@
-package com.dianxun.holyn.lucky.presenter.food;
+package com.dianxun.holyn.lucky.presenter.newannounce;
 
 import android.os.Handler;
-import android.widget.Toast;
 
-import com.dianxun.holyn.lucky.model.http.HttpURL;
 import com.dianxun.holyn.lucky.model.parcelable.BidRecordPar;
-import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
+import com.dianxun.holyn.lucky.model.parcelable.NewAnnouncePar;
 import com.dianxun.holyn.lucky.presenter.Presenter;
 import com.dianxun.holyn.lucky.view.BaseViewInferface;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -27,13 +13,13 @@ import javax.inject.Inject;
  * Created by holyn on 2015/12/10.
  */
 
-public class FoodDetailPresenter extends Presenter{
+public class NewAnnouncePresenter extends Presenter{
 
     private BaseViewInferface baseViewInferface;
     private UniqueViewInterface uniqueViewInterface;
 
     @Inject
-    public FoodDetailPresenter() { }
+    public NewAnnouncePresenter() { }
 
     @Override
     public void initialize() {
@@ -58,13 +44,13 @@ public class FoodDetailPresenter extends Presenter{
         this.uniqueViewInterface = uniqueViewInterface;
     }
 
-    public void getFoodDetail(){
+    public void getNewAnnounce(){
 
         //测试
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 baseViewInferface.loadingSuccess();
-                uniqueViewInterface.successGetBidRecordPar(new BidRecordPar());
+                uniqueViewInterface.successGetNewAnnouncePar(new NewAnnouncePar());
             }
         }, 2000);
 
@@ -97,6 +83,6 @@ public class FoodDetailPresenter extends Presenter{
      */
     public interface UniqueViewInterface {
 
-        void successGetBidRecordPar(BidRecordPar bidRecordPar);
+        void successGetNewAnnouncePar(NewAnnouncePar newAnnouncePar);
     }
 }

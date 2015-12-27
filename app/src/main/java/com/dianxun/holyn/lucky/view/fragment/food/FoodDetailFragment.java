@@ -26,7 +26,7 @@ import cn.bingoogolapple.refreshlayout.BGAStickinessRefreshViewHolder;
 /**
  * Created by holyn on 2015/12/24.
  */
-public class FoodDetailFragment extends BaseFragment implements FoodDetailPresenter.View, BGARefreshLayout.BGARefreshLayoutDelegate {
+public class FoodDetailFragment extends BaseFragment implements FoodDetailPresenter.UniqueViewInterface, BGARefreshLayout.BGARefreshLayoutDelegate {
 
     @Inject
     FoodDetailPresenter foodDetailPresenter;
@@ -67,7 +67,7 @@ public class FoodDetailFragment extends BaseFragment implements FoodDetailPresen
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        foodDetailPresenter.setView(this);
+        foodDetailPresenter.setUniqueViewInterface(this);
         foodDetailPresenter.initialize();
 
         initBGARefreshLayout();
@@ -159,22 +159,7 @@ public class FoodDetailFragment extends BaseFragment implements FoodDetailPresen
     }
 
     @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showFanArt(String tvShowFanArtUrl) {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void successLoading(BidRecordPar bidRecordPar) {
+    public void successGetBidRecordPar(BidRecordPar bidRecordPar) {
         new AsyncTask<Void, Void, Void>() {
 
             @Override
