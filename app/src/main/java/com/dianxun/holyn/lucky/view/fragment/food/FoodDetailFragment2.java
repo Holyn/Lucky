@@ -69,11 +69,11 @@ public class FoodDetailFragment2 extends BaseXRecyclerViewFragment implements Fo
     }
 
     private void begainLoadFoodDetail(){
-        foodDetailPresenter.getFoodDetail();
+        foodDetailPresenter.getBidRecordPar();
     }
 
     @Override
-    public void successGetBidRecordPar(BidRecordPar bidRecordPar) {
+    public void successGetBidRecordPar(List<BidRecordPar> recordPars) {
         List<BidRecordPar> recordParList = new ArrayList<BidRecordPar>();
         for (int i = 0; i<10; i++){
             BidRecordPar recordPar = new BidRecordPar();

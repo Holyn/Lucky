@@ -54,7 +54,7 @@ public class FoodDetailActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         initToolBar();
         fragmentManager = getSupportFragmentManager();
-        showFoodDetailFragment2();
+        showFoodDetailFragment();
     }
 
     private void showFoodDetailFragment(){

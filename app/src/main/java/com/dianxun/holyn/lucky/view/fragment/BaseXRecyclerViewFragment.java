@@ -70,12 +70,14 @@ public abstract class BaseXRecyclerViewFragment extends BaseFragment implements 
     protected void setPullRefreshEnabled(boolean isEnable){
         if (isEnable){
             xrecyclerview.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-            xrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallRotate);
         }
         xrecyclerview.setPullRefreshEnabled(isEnable);
     }
 
     protected void setLoadingMoreEnabled(boolean isEnable){
+        if (isEnable){
+            xrecyclerview.setLaodingMoreProgressStyle(ProgressStyle.BallRotate);
+        }
         xrecyclerview.setLoadingMoreEnabled(isEnable);
     }
 

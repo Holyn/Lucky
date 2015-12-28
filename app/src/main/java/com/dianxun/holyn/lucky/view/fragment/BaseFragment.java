@@ -21,9 +21,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.dianxun.holyn.lucky.view.activity.BaseActivity;
+import com.dianxun.holyn.lucky.view.widget.dialog.LoadingDialog;
 
 import butterknife.ButterKnife;
 
@@ -36,6 +38,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
   private View rootView;
+  public LoadingDialog loadingDialog = null;
 
   @Override public void onAttach(Activity activity) {
     super.onAttach(activity);
@@ -86,5 +89,36 @@ public abstract class BaseFragment extends Fragment {
    */
   private void injectViews(final View view) {
     ButterKnife.bind(this, view);
+  }
+
+  protected void showLoadingDialog() {
+    if (loadingDialog == null) {
+      loadingDialog = new LoadingDialog(getActivity(), null);
+    }
+    loadingDialog.show();
+  }
+
+  protected void showLoadingDialog(String msg) {
+    if (loadingDialog == null) {
+      loadingDialog = new LoadingDialog(getActivity(), msg);
+    }else {
+      loadingDialog.setMessage(msg);
+    }
+    loadingDialog.show();
+  }
+
+  protected void closeLoadingDialog() {
+    if (loadingDialog != null) {
+      if (loadingDialog.isShowing()) {
+        loadingDialog.cancel();
+        loadingDialog = null;
+      }
+    }
+  }
+
+  protected void toastMsg(String msg) {
+    if (getActivity() != null) {
+      Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+    }
   }
 }

@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import com.dianxun.holyn.lucky.model.http.HttpURL;
 import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
+import com.dianxun.holyn.lucky.model.parcelable.UserPar;
 import com.dianxun.holyn.lucky.presenter.Presenter;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -27,7 +28,7 @@ import javax.inject.Inject;
 public class MeLoginPresenter extends Presenter{
 
     private FoodPar foodPar;
-    private View view;
+    private UniqueViewInterface uniqueViewInterface;
 
     @Inject
     public MeLoginPresenter() { }
@@ -47,29 +48,34 @@ public class MeLoginPresenter extends Presenter{
 
     }
 
-    public void setView(View view) {
-        this.view = view;
+    public void setUniqueViewInterface(UniqueViewInterface uniqueViewInterface) {
+        this.uniqueViewInterface = uniqueViewInterface;
     }
 
     public void doLogin(String acount, String password){
-        RequestParams params = new RequestParams(HttpURL.FOOD_LIST);
+        uniqueViewInterface.loginBegin();
+        String url = HttpURL.USER_DO_LOGIN+HttpURL.PARAM_TEL+acount+HttpURL.ONE_SPRIT+HttpURL.PARAM_PASSWORD+password;
+        RequestParams params = new RequestParams(url);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                List<FoodPar> foodParList = null;
+                UserPar userPar = null;
                 try {
                     JsonParser parser = new JsonParser();
                     JsonObject jsonObject = parser.parse(result).getAsJsonObject();
-                    JsonElement listEle = jsonObject.get("list");
-                    if (listEle.isJsonArray()){
-                        JsonArray jsonArray = listEle.getAsJsonArray();
-                        java.lang.reflect.Type type = new TypeToken<List<FoodPar>>() {}.getType();
-                        foodParList = new Gson().fromJson(jsonArray.toString(), type);
-                        view.successLoading(foodParList);
-                    } else {
-
+                    JsonElement msgtEle = jsonObject.get("msg");
+                    if(msgtEle == null){
+                        uniqueViewInterface.loginError("出现异常");
+                    }else{
+                        if (msgtEle.isJsonObject()){
+                            userPar = new Gson().fromJson(msgtEle, UserPar.class);
+                            uniqueViewInterface.loginSuccess(userPar);
+                        } else {
+                            uniqueViewInterface.loginError("账号或者密码错误");
+                        }
                     }
                 }catch (Exception e){
+                    uniqueViewInterface.loginError("出现异常");
                     System.out.println(e);
                 }
 
@@ -83,11 +89,13 @@ public class MeLoginPresenter extends Presenter{
             @Override
             public void onCancelled(CancelledException cex) {
                 Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
+                uniqueViewInterface.loginError("出现异常");
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                uniqueViewInterface.loginError("出现异常");
             }
         });
     }
@@ -95,16 +103,12 @@ public class MeLoginPresenter extends Presenter{
     /**
      * View interface created to abstract the view implementation used in this presenter.
      */
-    public interface View {
+    public interface UniqueViewInterface {
 
-        void showLoading();
+        void loginBegin();
 
-        void showFanArt(final String tvShowFanArtUrl);
+        void loginSuccess(UserPar userPar);
 
-//        void showChapters(final ChapterCollection episodes);
-
-        void hideLoading();
-
-        void successLoading(List<FoodPar> foodParList);
+        void loginError(String msg);
     }
 }

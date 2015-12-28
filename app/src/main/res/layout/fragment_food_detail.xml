@@ -1,32 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <cn.bingoogolapple.refreshlayout.BGARefreshLayout
-        android:id="@+id/rl_recyclerview_refresh"
-        android:layout_above="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_recyclerview_data"
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.jcodecraeer.xrecyclerview.progressindicator.AVLoadingIndicatorView
+            android:id="@+id/avloadingIndicatorView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="visible"
+            app:indicator="BallGridPulse"
+            app:indicator_color="#fa0303" />
+
+        <TextView
+            android:id="@+id/tv_load"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="正在加载...." />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/xrecyclerview"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:overScrollMode="never"
-            android:padding="5dp"
-            android:scrollbars="none" />
-    </cn.bingoogolapple.refreshlayout.BGARefreshLayout>
+            android:layout_height="match_parent"
+            android:layout_above="@+id/line"/>
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/ll_bottom"
+            android:background="@color/grey_divide"/>
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_height="48dp"
-        android:text="BUttttttttttttttttttttttttt"/>
+        <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="4dp"
+            android:orientation="horizontal">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_red_solid_btn"
+                android:textColor="@color/white"
+                android:text="全额购"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/shape_red_stroke_btn"
+                android:textColor="@color/dark_red"
+                android:text="份额购"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/shape_red_stroke_btn"
+                android:textColor="@color/dark_red"
+                android:text="加入购物车"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/shape_red_stroke_btn"
+                android:textColor="@color/dark_red"
+                android:text="开房购"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
 </RelativeLayout>
-
-
-
-
-

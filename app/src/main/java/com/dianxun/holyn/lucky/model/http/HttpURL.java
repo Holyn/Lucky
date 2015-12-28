@@ -51,4 +51,29 @@ public class HttpURL {
      */
     public final static String FOOD_ROOM_ADD = URL_API_PRE + FOOD +"addRoom";
 
+    /**
+     * 用户-登录
+     * http://115.28.54.56/xingyun/index.php/Api/User/doLogin/tel/13590604841/password/123456
+     */
+    public final static String USER_DO_LOGIN = URL_API_PRE + USER +"doLogin/";
+
+    /**
+     * 用户-注册
+     * http://115.28.54.56/xingyun/index.php/Api/User/doReg/tel/13590604841/password/123456/name
+     * name：真实姓名
+     */
+    public final static String USER_DO_GEG = URL_API_PRE + USER +"doReg/";
+
+    /**
+     * 用户-获取验证码
+     * http://115.28.54.56/xingyun/index.php/Api/User/getCode/tel/13590604841
+     */
+    public final static String USER_GET_CODE = URL_API_PRE + USER +"getCode/";
+
+    /**
+     * 用户-重置密码
+     * http://115.28.54.56/xingyun/index.php/Api/User/doPassword/id/123/password/123/oldPassword/12345
+     */
+    public final static String USER_DO_PASSWORD = URL_API_PRE + USER +"doPassword/";
+
 }

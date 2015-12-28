@@ -7,6 +7,7 @@
     tools:context=".view.activity.MeActivity">
 
     <ImageView
+        android:id="@+id/iv_header"
         android:layout_width="140dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
@@ -33,6 +34,7 @@
             android:src="@mipmap/ic_login_phone" />
 
         <EditText
+            android:id="@+id/et_acount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -61,6 +63,7 @@
             android:src="@mipmap/ic_login_password" />
 
         <EditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
@@ -73,6 +76,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginLeft="20dp"
@@ -84,6 +88,7 @@
         android:textSize="@dimen/text_size_16" />
 
     <TextView
+        android:id="@+id/tv_register"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"

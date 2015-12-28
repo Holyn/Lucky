@@ -1,26 +1,47 @@
 package com.dianxun.holyn.lucky.view.fragment.me;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
-import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
+import com.dianxun.holyn.lucky.model.http.HttpURL;
+import com.dianxun.holyn.lucky.model.parcelable.UserPar;
 import com.dianxun.holyn.lucky.presenter.me.MeLoginPresenter;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
 import com.dianxun.holyn.lucky.view.fragment.BaseFragment;
-
-import java.util.List;
+import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * Created by holyn on 2015/12/20.
  */
-public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.View{
+public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.UniqueViewInterface {
     @Inject
     MeLoginPresenter meLoginPresenter;
 
-    public static MeLoginFragment newInstance(){
+    @Bind(R.id.et_acount)
+    EditText etAcount;
+    @Bind(R.id.et_password)
+    EditText etPassword;
+    @Bind(R.id.btn_submit)
+    Button btnSubmit;
+    @Bind(R.id.tv_register)
+    TextView tvRegister;
+    @Bind(R.id.iv_header)
+    ImageView ivHeader;
+
+    public static MeLoginFragment newInstance() {
         return new MeLoginFragment();
     }
 
@@ -44,34 +65,59 @@ public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.Vi
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        meLoginPresenter.setView(this);
+        meLoginPresenter.setUniqueViewInterface(this);
         meLoginPresenter.initialize();
 
-
+        initView();
     }
 
-    @Override public void onPause() {
+    private void initView(){
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submitLogin();
+            }
+        });
+    }
+
+    private void submitLogin(){
+        String acount = etAcount.getText().toString().trim();
+        if (TextUtils.isEmpty(acount)) {
+            toastMsg("用户名为空");
+            return;
+        }
+
+        String password = etPassword.getText().toString().trim();
+        if (TextUtils.isEmpty(password)) {
+            toastMsg("密码为空");
+            return;
+        }
+
+        meLoginPresenter.doLogin(acount, password);
+    }
+
+    @Override
+    public void loginSuccess(UserPar userPar) {
+        closeLoadingDialog();
+        toastMsg("登录成功");
+
+        Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+userPar.getPic()).into(ivHeader);
+    }
+
+    @Override
+    public void loginBegin() {
+        showLoadingDialog("正在登录....");
+    }
+
+    @Override
+    public void loginError(String msg) {
+        closeLoadingDialog();
+        toastMsg(msg);
+    }
+
+    @Override
+    public void onPause() {
         super.onPause();
         meLoginPresenter.pause();
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showFanArt(String tvShowFanArtUrl) {
-
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void successLoading(List<FoodPar> foodParList) {
-
     }
 }

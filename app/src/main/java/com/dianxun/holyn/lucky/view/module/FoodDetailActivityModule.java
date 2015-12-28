@@ -14,7 +14,7 @@ import dagger.Module;
 
 @Module(complete = false ,
         injects = {
-                FoodDetailActivity.class, FoodDetailFragment2.class
+                FoodDetailActivity.class, FoodDetailFragment.class, FoodDetailFragment2.class
         })
 public class FoodDetailActivityModule {
 

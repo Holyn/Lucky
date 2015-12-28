@@ -19,6 +19,7 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -58,13 +59,20 @@ public class FoodDetailPresenter extends Presenter{
         this.uniqueViewInterface = uniqueViewInterface;
     }
 
-    public void getFoodDetail(){
+    public void getBidRecordPar(){
 
         //测试
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 baseViewInferface.loadingSuccess();
-                uniqueViewInterface.successGetBidRecordPar(new BidRecordPar());
+                List<BidRecordPar> recordParList = new ArrayList<BidRecordPar>();
+                for (int i = 0; i<10; i++){
+                    BidRecordPar recordPar = new BidRecordPar();
+                    recordPar.setId("1111");
+                    recordPar.setName("holyn_"+ i);
+                    recordParList.add(recordPar);
+                }
+                uniqueViewInterface.successGetBidRecordPar(recordParList);
             }
         }, 2000);
 
@@ -97,6 +105,6 @@ public class FoodDetailPresenter extends Presenter{
      */
     public interface UniqueViewInterface {
 
-        void successGetBidRecordPar(BidRecordPar bidRecordPar);
+        void successGetBidRecordPar(List<BidRecordPar> recordParListr);
     }
 }
