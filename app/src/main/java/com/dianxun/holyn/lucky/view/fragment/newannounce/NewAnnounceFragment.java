@@ -82,9 +82,11 @@ public class NewAnnounceFragment extends BaseXRecyclerViewFragment implements Ne
             announcePar.setName("holyn_" + i);
             newAnnounceParList.add(announcePar);
         }
-        recyclerViewAdapter.addNewDatas(newAnnounceParList);
-        getXrecyclerview().smoothScrollToPosition(0);
-        recyclerViewAdapter.notifyDataSetChanged();
+        if(recyclerViewAdapter!=null && getXrecyclerview()!=null){
+            recyclerViewAdapter.addNewDatas(newAnnounceParList);
+            getXrecyclerview().smoothScrollToPosition(0);
+            recyclerViewAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override

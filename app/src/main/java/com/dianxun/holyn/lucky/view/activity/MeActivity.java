@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeMemberCenterFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeRegisterFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeSettingFragment;
 import com.dianxun.holyn.lucky.view.module.MeActivityModule;
 
@@ -36,6 +37,7 @@ public class MeActivity extends BaseActivity {
     private MeMemberCenterFragment meMemberCenterFragment = null;
     private MeSettingFragment meSettingFragment = null;
     private MeLoginFragment meLoginFragment = null;
+    private MeRegisterFragment meRegisterFragment = null;
 
     @Override
     protected int getLayoutResId() {
@@ -124,6 +126,16 @@ public class MeActivity extends BaseActivity {
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fl_container, meLoginFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void showMeRegisterFragment(){
+        if (meRegisterFragment == null){
+            meRegisterFragment = MeRegisterFragment.newInstance();
+        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_container, meRegisterFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

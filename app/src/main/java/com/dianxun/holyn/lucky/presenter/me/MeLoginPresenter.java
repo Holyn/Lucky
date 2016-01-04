@@ -89,7 +89,6 @@ public class MeLoginPresenter extends Presenter{
             @Override
             public void onCancelled(CancelledException cex) {
                 Toast.makeText(x.app(), "cancelled", Toast.LENGTH_LONG).show();
-                uniqueViewInterface.loginError("出现异常");
             }
 
             @Override

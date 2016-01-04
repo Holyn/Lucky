@@ -98,13 +98,21 @@ public abstract class BaseXRecyclerViewFragment extends BaseFragment implements 
 
     @Override
     public void loadingError() {
-        avloadingIndicatorView.setVisibility(View.GONE);
-        tvLoad.setText("加载失败，请稍后重试");
+        if (avloadingIndicatorView != null){
+            avloadingIndicatorView.setVisibility(View.GONE);
+        }
+        if (tvLoad != null){
+            tvLoad.setText("加载失败，请稍后重试");
+        }
     }
 
     @Override
     public void loadingSuccess() {
-        emptyView.setVisibility(View.GONE);
-        xrecyclerview.setVisibility(View.VISIBLE);
+        if (emptyView != null){
+            emptyView.setVisibility(View.GONE);
+        }
+        if (xrecyclerview != null){
+            xrecyclerview.setVisibility(View.VISIBLE);
+        }
     }
 }

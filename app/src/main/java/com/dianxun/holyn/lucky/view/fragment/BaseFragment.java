@@ -37,7 +37,7 @@ import butterknife.ButterKnife;
  */
 public abstract class BaseFragment extends Fragment {
 
-  private View rootView;
+  private View rootView = null;
   public LoadingDialog loadingDialog = null;
 
   @Override public void onAttach(Activity activity) {
@@ -47,6 +47,13 @@ public abstract class BaseFragment extends Fragment {
 
   @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
+    if (rootView != null) {
+      ViewGroup parent = (ViewGroup) rootView.getParent();
+      if (null != parent) {
+        parent.removeView(rootView);
+      }
+      return rootView;
+    }
     rootView = inflater.inflate(getFragmentLayout(), container, false);
     return rootView;
   }

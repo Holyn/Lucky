@@ -27,6 +27,10 @@ public class HttpURL {
     public final static String PARAM_FOOD_ID = "foodId/";
     public final static String PARAM_USER_ID = "userId/";
 
+    /* 一些错误信息 */
+    public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
+    public final static String MSG_TEL_OK = "ok";//注册成功
+
     /**
      * 商品-列表
      * http://115.28.54.56/xingyun/index.php/Api/Food/listIndexFood
@@ -59,10 +63,10 @@ public class HttpURL {
 
     /**
      * 用户-注册
-     * http://115.28.54.56/xingyun/index.php/Api/User/doReg/tel/13590604841/password/123456/name
+     * http://115.28.54.56/xingyun/index.php/Api/User/doReg/tel/13590604841/password/123456/name/holyn
      * name：真实姓名
      */
-    public final static String USER_DO_GEG = URL_API_PRE + USER +"doReg/";
+    public final static String USER_DO_REG = URL_API_PRE + USER +"doReg/";
 
     /**
      * 用户-获取验证码

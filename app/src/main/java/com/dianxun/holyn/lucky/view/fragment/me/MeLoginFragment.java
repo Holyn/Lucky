@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.http.HttpURL;
 import com.dianxun.holyn.lucky.model.parcelable.UserPar;
+import com.dianxun.holyn.lucky.model.sharedpreferences.UserInfoSP;
 import com.dianxun.holyn.lucky.presenter.me.MeLoginPresenter;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
 import com.dianxun.holyn.lucky.view.fragment.BaseFragment;
@@ -22,6 +23,7 @@ import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by holyn on 2015/12/20.
@@ -72,12 +74,28 @@ public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.Un
     }
 
     private void initView(){
+
+        etAcount.setText(UserInfoSP.getSingleInstance(getActivity()).getTel());
+        if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
+            etPassword.setText("");
+        }else{
+            etPassword.setText(UserInfoSP.getSingleInstance(getActivity()).getPassword());
+        }
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 submitLogin();
             }
         });
+
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MeActivity)getActivity()).showMeRegisterFragment();
+            }
+        });
+
     }
 
     private void submitLogin(){
@@ -100,8 +118,10 @@ public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.Un
     public void loginSuccess(UserPar userPar) {
         closeLoadingDialog();
         toastMsg("登录成功");
+        EventBus.getDefault().post(userPar);
+        UserInfoSP.getSingleInstance(getActivity()).setUserPar(userPar);
+        (MeLoginFragment.this.getActivity()).onBackPressed();;
 
-        Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+userPar.getPic()).into(ivHeader);
     }
 
     @Override

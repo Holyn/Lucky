@@ -83,9 +83,11 @@ public class OrderFragment extends BaseXRecyclerViewFragment implements OrderPre
             order.setTitle("我的宝贝_" + i);
             orderParList.add(order);
         }
-        recyclerViewAdapter.addNewDatas(orderParList);
-        getXrecyclerview().smoothScrollToPosition(0);
-        recyclerViewAdapter.notifyDataSetChanged();
+        if(recyclerViewAdapter!=null && getXrecyclerview()!=null){
+            recyclerViewAdapter.addNewDatas(orderParList);
+            getXrecyclerview().smoothScrollToPosition(0);
+            recyclerViewAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
