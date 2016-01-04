@@ -24,7 +24,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_1" />
 
         <TextView
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_2" />
 
         <TextView
             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_3" />
 
         <TextView
             android:layout_width="match_parent"
@@ -129,7 +129,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_4" />
 
         <TextView
             android:layout_width="match_parent"
@@ -164,7 +164,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_5" />
 
         <TextView
             android:layout_width="match_parent"
@@ -200,7 +200,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_1" />
 
         <TextView
             android:layout_width="match_parent"
@@ -235,7 +235,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_classify_1" />
+            android:src="@mipmap/me_8" />
 
         <TextView
             android:layout_width="match_parent"
