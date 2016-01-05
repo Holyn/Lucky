@@ -25,9 +25,8 @@ import javax.inject.Inject;
  */
 
 public class MainFoodPresenter extends Presenter{
-    
-    private FoodPar foodPar;
-    private View view;
+
+    private UniqueViewInterface uniqueViewInterface;
 
     @Inject
     public MainFoodPresenter() { }
@@ -47,11 +46,11 @@ public class MainFoodPresenter extends Presenter{
 
     }
 
-    public void setView(View view) {
-        this.view = view;
+    public void setView(UniqueViewInterface uniqueViewInterface) {
+        this.uniqueViewInterface = uniqueViewInterface;
     }
 
-    public void loadFoodList(){
+    public void getFoodList(){
         RequestParams params = new RequestParams(HttpURL.FOOD_LIST);
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
@@ -65,12 +64,13 @@ public class MainFoodPresenter extends Presenter{
                         JsonArray jsonArray = listEle.getAsJsonArray();
                         java.lang.reflect.Type type = new TypeToken<List<FoodPar>>() {}.getType();
                         foodParList = new Gson().fromJson(jsonArray.toString(), type);
-                        view.successLoading(foodParList);
+                        uniqueViewInterface.successGetFoodList(foodParList);
                     } else {
-
+                        uniqueViewInterface.errorGetFoodList("商品列表获取失败");
                     }
                 }catch (Exception e){
                     System.out.println(e);
+                    uniqueViewInterface.errorGetFoodList("商品列表获取失败");
                 }
 
             }
@@ -88,6 +88,7 @@ public class MainFoodPresenter extends Presenter{
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 Toast.makeText(x.app(), ex.getMessage(), Toast.LENGTH_LONG).show();
+                uniqueViewInterface.errorGetFoodList("商品列表获取失败");
             }
         });
     }
@@ -95,16 +96,10 @@ public class MainFoodPresenter extends Presenter{
     /**
      * View interface created to abstract the view implementation used in this presenter.
      */
-    public interface View {
+    public interface UniqueViewInterface {
 
-        void showLoading();
+        void successGetFoodList(List<FoodPar> foodParList);
 
-        void showFanArt(final String tvShowFanArtUrl);
-
-//        void showChapters(final ChapterCollection episodes);
-
-        void hideLoading();
-
-        void successLoading(List<FoodPar> foodParList);
+        void errorGetFoodList(String msg);
     }
 }

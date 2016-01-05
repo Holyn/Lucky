@@ -229,8 +229,8 @@ public class FoodDetailFragment extends BaseFragment implements FoodDetailPresen
         if (emptyView != null){
             emptyView.setVisibility(View.GONE);
         }
-        if (xrecyclerview != null){
-            xrecyclerview.setVisibility(View.VISIBLE);
+        if (contentView != null){
+            contentView.setVisibility(View.VISIBLE);
         }
     }
 }

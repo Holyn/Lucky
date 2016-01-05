@@ -26,7 +26,7 @@ import cn.bingoogolapple.androidcommon.adapter.BGAOnRVItemClickListener;
 /**
  * Created by holyn on 2015/12/17.
  */
-public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFoodPresenter.View, BGAOnRVItemClickListener, BGAOnItemChildClickListener {
+public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFoodPresenter.UniqueViewInterface, BGAOnRVItemClickListener, BGAOnItemChildClickListener {
 
     @Inject
     MainFoodPresenter mainFoodPresenter;
@@ -80,7 +80,7 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
-        mainFoodPresenter.loadFoodList();
+        mainFoodPresenter.getFoodList();
     }
 
     @Override
@@ -113,22 +113,12 @@ public class MainRVGridFragment extends BaseViewPagerFragment implements  MainFo
     }
 
     @Override
-    public void showLoading() {
+    public void errorGetFoodList(String msg) {
 
     }
 
     @Override
-    public void showFanArt(String tvShowFanArtUrl) {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void successLoading(List<FoodPar> foodParList) {
+    public void successGetFoodList(List<FoodPar> foodParList) {
         System.out.println("====> successLoading_"+getArguments().getInt(BUNDLE_FRAGMENT_INDEX)+" -- foodParList.size() = "+foodParList.size());
         recyclerViewAdapter.addNewDatas(foodParList);
         recyclerView.smoothScrollToPosition(0);

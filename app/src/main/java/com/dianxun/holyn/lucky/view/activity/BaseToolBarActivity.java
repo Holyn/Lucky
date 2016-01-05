@@ -49,6 +49,8 @@ public class BaseToolBarActivity extends BaseActivity {
         return this.fragmentManager;
     }
 
+    protected Toolbar getBaseToolbar(){return this.toolbar;}
+
     public void setToolBarTitle(String title) {
         tvToolbarTitle.setText(title);
     }

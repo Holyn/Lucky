@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/xrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/line"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll_main_tabs"
+        android:background="@color/grey_divide"/>
+
+    <LinearLayout
+        android:id="@+id/ll_main_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_bottom_tab_1"
+            android:drawableTop="@mipmap/main_tab_btn_1"
+            android:textColor="@color/main_tab_1_color"
+            android:text="夺宝"
+            style="@style/main_bottom_tab_style"/>
+
+        <TextView
+            android:id="@+id/tv_bottom_tab_2"
+            android:drawableTop="@mipmap/main_tab_btn_2"
+            android:textColor="@color/main_tab_2_color"
+            android:text="最新揭晓"
+            style="@style/main_bottom_tab_style" />
+
+        <TextView
+            android:id="@+id/tv_bottom_tab_3"
+            android:drawableTop="@mipmap/main_tab_btn_3"
+            android:textColor="@color/main_tab_3_color"
+            android:text="晒单"
+            style="@style/main_bottom_tab_style"  />
+
+        <TextView
+            android:id="@+id/tv_bottom_tab_4"
+            android:drawableTop="@mipmap/main_tab_btn_4"
+            android:textColor="@color/main_tab_4_color"
+            android:text="房间"
+            style="@style/main_bottom_tab_style" />
+
+        <TextView
+            android:id="@+id/tv_bottom_tab_5"
+            android:drawableTop="@mipmap/main_tab_btn_5"
+            android:textColor="@color/main_tab_5_color"
+            android:text="我"
+            style="@style/main_bottom_tab_style"  />
+
+    </LinearLayout>
+
+</RelativeLayout>

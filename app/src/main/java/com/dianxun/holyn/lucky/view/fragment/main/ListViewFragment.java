@@ -20,7 +20,7 @@ import javax.inject.Inject;
 
 
 public class ListViewFragment extends BaseViewPagerFragment
-        implements AbsListView.OnItemClickListener, MainFoodPresenter.View {
+        implements AbsListView.OnItemClickListener, MainFoodPresenter.UniqueViewInterface {
 
     @Inject
     MainFoodPresenter mainFoodPresenter;
@@ -98,22 +98,12 @@ public class ListViewFragment extends BaseViewPagerFragment
     }
 
     @Override
-    public void showLoading() {
+    public void errorGetFoodList(String msg) {
 
     }
 
     @Override
-    public void showFanArt(String tvShowFanArtUrl) {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void successLoading(List<FoodPar> foodParList) {
+    public void successGetFoodList(List<FoodPar> foodParList) {
 
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lucky</string>
+    <string name="app_name">我是幸运儿</string>
 
     <string name="tab_popularity">人气</string>
     <string name="tab_newest">最新</string>

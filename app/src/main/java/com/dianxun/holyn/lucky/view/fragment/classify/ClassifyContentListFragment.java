@@ -22,7 +22,7 @@ import javax.inject.Inject;
 /**
  * Created by holyn on 2015/12/20.
  */
-public class ClassifyContentListFragment extends BaseFragment implements  MainFoodPresenter.View{
+public class ClassifyContentListFragment extends BaseFragment implements  MainFoodPresenter.UniqueViewInterface{
 
     @Inject
     MainFoodPresenter mainFoodPresenter;
@@ -70,7 +70,7 @@ public class ClassifyContentListFragment extends BaseFragment implements  MainFo
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.addItemDecoration(new DividerGridItemDecoration(getActivity()));
 
-        mainFoodPresenter.loadFoodList();
+        mainFoodPresenter.getFoodList();
     }
 
     @Override public void onResume() {
@@ -84,22 +84,12 @@ public class ClassifyContentListFragment extends BaseFragment implements  MainFo
     }
 
     @Override
-    public void showLoading() {
+    public void errorGetFoodList(String msg) {
 
     }
 
     @Override
-    public void showFanArt(String tvShowFanArtUrl) {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void successLoading(List<FoodPar> foodParList) {
+    public void successGetFoodList(List<FoodPar> foodParList) {
         System.out.println("====> successLoading -- foodParList.size() = "+foodParList.size());
         recyclerViewAdapter.addNewDatas(foodParList);
         recyclerView.smoothScrollToPosition(0);
