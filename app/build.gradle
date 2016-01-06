@@ -28,4 +28,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile project(':convenientbanner')
     compile project(':xrecyclerview')
+    compile project(':selectlocalimage')
 }

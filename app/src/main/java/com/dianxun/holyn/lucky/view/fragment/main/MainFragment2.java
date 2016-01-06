@@ -3,7 +3,6 @@ package com.dianxun.holyn.lucky.view.fragment.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,6 +13,7 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
 import com.dianxun.holyn.lucky.presenter.main.MainFoodPresenter;
+import com.dianxun.holyn.lucky.view.activity.BaseToolBarActivity;
 import com.dianxun.holyn.lucky.view.activity.ClassifyActivity;
 import com.dianxun.holyn.lucky.view.activity.ClassifyContentListActivity;
 import com.dianxun.holyn.lucky.view.activity.FoodDetailActivity;
@@ -23,7 +23,6 @@ import com.dianxun.holyn.lucky.view.activity.OrderActivity;
 import com.dianxun.holyn.lucky.view.activity.RoomActivity;
 import com.dianxun.holyn.lucky.view.fragment.BaseFragment;
 import com.dianxun.holyn.lucky.view.utils.DividerGridItemDecoration;
-import com.dianxun.holyn.lucky.view.utils.LocalImageHolderView;
 import com.dianxun.holyn.lucky.view.utils.LocalImageHolderView2;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
@@ -87,6 +86,7 @@ public class MainFragment2 extends BaseFragment implements  MainFoodPresenter.Un
     @Override
     public void onResume() {
         super.onResume();
+        ((BaseToolBarActivity)getActivity()).setToolBarTitle("我是幸运儿");
         mainFoodPresenter.resume();
         //开始自动翻页
         convenientBanner.startTurning(5000);
