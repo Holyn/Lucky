@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.dianxun.holyn.lucky.R;
+import com.dianxun.holyn.lucky.model.sharedpreferences.UserInfoSP;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
 import com.holyn.selectlocalimage.LocalImageVo;
 import com.holyn.selectlocalimage.SelectLocalPicActivity;
@@ -77,10 +78,60 @@ public class MeSettingFragment extends Fragment {
         ll01.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
-                intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
-                intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 2);
-                startActivityForResult(intent,0);
+                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
+                    ((MeActivity) getActivity()).showMeLoginFragment();
+                }else{
+                    Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
+                    intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
+                    intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 2);
+                    startActivityForResult(intent, 0);
+                }
+            }
+        });
+
+        ll02.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
+                    ((MeActivity) getActivity()).showMeLoginFragment();
+                }else{
+
+                }
+            }
+        });
+
+        ll03.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ll04.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ll05.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ll06.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ll07.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

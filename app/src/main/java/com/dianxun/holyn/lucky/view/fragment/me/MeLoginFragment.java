@@ -116,10 +116,10 @@ public class MeLoginFragment extends BaseFragment implements MeLoginPresenter.Un
 
     @Override
     public void loginSuccess(UserPar userPar) {
-        closeLoadingDialog();
-        toastMsg("登录成功");
         EventBus.getDefault().post(userPar);
         UserInfoSP.getSingleInstance(getActivity()).setUserPar(userPar);
+        closeLoadingDialog();
+        toastMsg("登录成功");
         (MeLoginFragment.this.getActivity()).onBackPressed();;
 
     }

@@ -1,1 +1,1 @@
-include ':app', ':mylibrary', ':convenientbanner', ':xrecyclerview', ':selectlocalimage'
+include ':selectlocalimage', ':app', ':convenientbanner', ':mylibrary', ':xrecyclerview'
