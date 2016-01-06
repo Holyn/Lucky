@@ -140,6 +140,9 @@ public class MeRegisterFragment extends BaseFragment implements MeRegisterPresen
         if (TextUtils.isEmpty(code)) {
             toastMsg("验证码为空");
             return;
+        }else if(!code.equals(this.code)){
+            toastMsg("验证码不正确");
+            return;
         }
 
         String name = etCode.getText().toString().trim();
