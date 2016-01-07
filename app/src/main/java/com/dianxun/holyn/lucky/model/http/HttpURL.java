@@ -29,13 +29,25 @@ public class HttpURL {
 
     /* 一些错误信息 */
     public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
-    public final static String MSG_TEL_OK = "ok";//注册成功
+    public final static String MSG_OK = "ok";//注册成功
 
     /**
-     * 商品-列表
+     * 商品-首页列表
      * http://115.28.54.56/xingyun/index.php/Api/Food/listIndexFood
      */
     public final static String FOOD_LIST = URL_API_PRE + FOOD +"listIndexFood";
+
+    /**
+     * 商品-获取商品分类的类型列表
+     * http://115.28.54.56/xingyun/index.php/Api/Food/listCompanyType
+     */
+    public final static String FOOD_CLASSIFY_TYPE_ID_LIST = URL_API_PRE + FOOD +"listCompanyType";
+
+    /**
+     * 商品-分类浏览商品列表
+     * http://115.28.54.56/xingyun/index.php/Api/Food/listFood/typeId/5/p/1
+     */
+    public final static String FOOD_CLASSIFY__LIST = URL_API_PRE + FOOD +"listFood";
 
     /**
      * 商品-详情

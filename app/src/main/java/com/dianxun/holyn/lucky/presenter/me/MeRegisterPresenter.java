@@ -1,12 +1,7 @@
 package com.dianxun.holyn.lucky.presenter.me;
 
-import android.widget.Toast;
-
 import com.dianxun.holyn.lucky.model.http.HttpURL;
-import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
-import com.dianxun.holyn.lucky.model.parcelable.UserPar;
 import com.dianxun.holyn.lucky.presenter.Presenter;
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -110,7 +105,7 @@ public class MeRegisterPresenter extends Presenter{
                         String msg = msgtEle.getAsString();
                         if (msg.equals(HttpURL.MSG_TEL_ERROR)){
                             uniqueViewInterface.doRegError("电话号码已注册");
-                        }else{
+                        }else if(msg.equals(HttpURL.MSG_OK)){
                             uniqueViewInterface.doRegSuccess("注册成功");
                         }
                     }
