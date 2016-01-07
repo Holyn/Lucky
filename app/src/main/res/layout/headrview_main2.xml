@@ -8,11 +8,11 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="6dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="6dp"
         android:gravity="center"
         android:textSize="@dimen/text_size_14"
         android:background="@drawable/shape_red_stroke_btn"
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_1"
+            android:drawableTop="@mipmap/btn_index_mid_01"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_2"
+            android:drawableTop="@mipmap/btn_index_mid_02"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_3"
+            android:drawableTop="@mipmap/btn_index_mid_03"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_4"
+            android:drawableTop="@mipmap/btn_index_mid_04"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -97,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_3"
+            android:drawableTop="@mipmap/btn_index_mid_05"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -110,7 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@mipmap/main_menu_btn_1"
+            android:drawableTop="@mipmap/btn_index_mid_06"
             android:background="@color/selector_white_lightgray_70"
             android:clickable="true"
             android:gravity="center_horizontal"
@@ -133,11 +133,11 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:orientation="vertical">
-            <TextView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="惠抢购"/>
+                android:scaleType="centerInside"
+                android:src="@mipmap/ad_index_01"/>
         </LinearLayout>
 
         <View
@@ -154,10 +154,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="人气商品"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ad_index_02"/>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -167,20 +168,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="89dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="女性时尚"/>
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ad_index_03"/>
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/grey_divide"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="新人福利"/>
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/ad_index_04"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

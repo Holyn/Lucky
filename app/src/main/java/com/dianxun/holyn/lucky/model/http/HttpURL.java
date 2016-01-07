@@ -17,6 +17,8 @@ public class HttpURL {
     public final static String USER = "User/";//用户模块
     public final static String FOOD = "Food/";//商品模块
     public final static String BOOK = "Book/";//订单模块
+    public final static String COMPANY = "Company/";//店铺模块
+    public final static String COMPANY_TYPE = "CompanyType/";//店铺类型模块
 
     /* 一些参数 */
     public final static String PARAM_ID = "id/";
@@ -26,10 +28,17 @@ public class HttpURL {
     public final static String PARAM_OLD_PASSWORD = "oldPassword/";
     public final static String PARAM_FOOD_ID = "foodId/";
     public final static String PARAM_USER_ID = "userId/";
+    public final static String PARAM_TYPE_ID = "typeId/";
 
     /* 一些错误信息 */
     public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
     public final static String MSG_OK = "ok";//注册成功
+
+    /**
+     * 店铺-获取商品分类的类型列表
+     * http://115.28.54.56/xingyun/index.php/Api/Company/listCompanyType
+     */
+    public final static String COMPANY_CLASSIFY_TYPE_ID_LIST = URL_API_PRE + COMPANY +"listCompanyType";
 
     /**
      * 商品-首页列表
@@ -38,16 +47,10 @@ public class HttpURL {
     public final static String FOOD_LIST = URL_API_PRE + FOOD +"listIndexFood";
 
     /**
-     * 商品-获取商品分类的类型列表
-     * http://115.28.54.56/xingyun/index.php/Api/Food/listCompanyType
-     */
-    public final static String FOOD_CLASSIFY_TYPE_ID_LIST = URL_API_PRE + FOOD +"listCompanyType";
-
-    /**
      * 商品-分类浏览商品列表
      * http://115.28.54.56/xingyun/index.php/Api/Food/listFood/typeId/5/p/1
      */
-    public final static String FOOD_CLASSIFY__LIST = URL_API_PRE + FOOD +"listFood";
+    public final static String FOOD_CLASSIFY__LIST = URL_API_PRE + FOOD +"listFood/p/";
 
     /**
      * 商品-详情

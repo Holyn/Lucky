@@ -2,9 +2,11 @@ package com.dianxun.holyn.lucky.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.dianxun.holyn.lucky.LuckyApplication;
 import com.dianxun.holyn.lucky.view.module.ActivityModule;
+import com.dianxun.holyn.lucky.view.widget.dialog.LoadingDialog;
 
 import java.util.List;
 
@@ -16,6 +18,7 @@ import dagger.ObjectGraph;
  */
 public abstract class BaseActivity extends AppCompatActivity {
     private ObjectGraph activityScopeGraph;
+    public LoadingDialog loadingDialog = null;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,5 +67,36 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     private void injectViews() {
         ButterKnife.bind(this);
+    }
+
+    public void showLoadingDialog() {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(BaseActivity.this, null);
+        }
+        loadingDialog.show();
+    }
+
+    public void showLoadingDialog(String msg) {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(BaseActivity.this, msg);
+        }else {
+            loadingDialog.setMessage(msg);
+        }
+        loadingDialog.show();
+    }
+
+    public void closeLoadingDialog() {
+        if (loadingDialog != null) {
+            if (loadingDialog.isShowing()) {
+                loadingDialog.cancel();
+                loadingDialog = null;
+            }
+        }
+    }
+
+    public void toastMsg(String msg) {
+        if (BaseActivity.this != null) {
+            Toast.makeText(BaseActivity.this, msg, Toast.LENGTH_SHORT).show();
+        }
     }
 }

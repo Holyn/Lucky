@@ -15,6 +15,7 @@ import com.dianxun.holyn.lucky.model.parcelable.FoodPar;
 import com.dianxun.holyn.lucky.presenter.main.MainFoodPresenter;
 import com.dianxun.holyn.lucky.view.activity.BaseToolBarActivity;
 import com.dianxun.holyn.lucky.view.activity.ClassifyActivity;
+import com.dianxun.holyn.lucky.view.activity.ClassifyActivity2;
 import com.dianxun.holyn.lucky.view.activity.ClassifyContentListActivity;
 import com.dianxun.holyn.lucky.view.activity.FoodDetailActivity;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
@@ -182,7 +183,7 @@ public class MainFragment2 extends BaseFragment implements  MainFoodPresenter.Un
         tvCenterMenu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), ClassifyContentListActivity.class));
+                startActivity(new Intent(getActivity(), ClassifyActivity2.class));
             }
         });
         tvCenterMenu3.setOnClickListener(new View.OnClickListener() {

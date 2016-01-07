@@ -36,6 +36,9 @@
             android:name=".view.activity.ClassifyActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".view.activity.ClassifyActivity2"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".view.activity.ClassifyContentListActivity"
             android:screenOrientation="portrait"/>
         <activity
