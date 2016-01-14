@@ -131,6 +131,11 @@ public class XRecyclerView extends RecyclerView {
         }
     }
 
+    public void resetLoadingMoreView(){
+        isnomore = false;
+        previousTotal = 0;
+    }
+
     public void setRefreshProgressStyle(int style) {
         mRefreshProgressStyle = style;
         if (mRefreshHeader != null){

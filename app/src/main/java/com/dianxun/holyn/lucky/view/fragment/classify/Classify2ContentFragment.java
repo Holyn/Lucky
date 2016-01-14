@@ -54,8 +54,8 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        System.out.println("====> Classify2ContentFragment--onViewCreated....");
         showEmptyView();
-        setLoadingListenner(false, false);
         setLoadingListenner(true, true);
     }
 
@@ -65,7 +65,9 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
         page = 1;
         System.out.println("====> id=" + typeId + "::page=" + page);
         getClassifyFoodList(typeId, page);
+
         showEmptyView();
+        getXrecyclerview().resetLoadingMoreView();
     }
 
     @Override
@@ -98,20 +100,22 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
                 if (page == 1){
                     classify2ContentRVAdapter.clear();
                     getXrecyclerview().refreshComplete();
-                    setLoadingMoreEnabled(true);
 
-                    classify2ContentRVAdapter.addNewDatas(classifyFoodParList);
-                    getXrecyclerview().smoothScrollToPosition(0);
-                    classify2ContentRVAdapter.notifyDataSetChanged();
+                    if (classifyFoodParList.size() == 0){
+                        toastMsg("没数据");
+                    }else{
+                        classify2ContentRVAdapter.addNewDatas(classifyFoodParList);
+                        getXrecyclerview().smoothScrollToPosition(0);
+                        classify2ContentRVAdapter.notifyDataSetChanged();
+                    }
                 }else{
-                    classify2ContentRVAdapter.addMoreDatas(classifyFoodParList);
-                    classify2ContentRVAdapter.notifyDataSetChanged();
                     getXrecyclerview().loadMoreComplete();
-                }
-
-                if (classifyFoodParList.size() == 0){
-                    toastMsg("数据已加载完毕");
-                    setLoadingMoreEnabled(false);
+                    if (classifyFoodParList.size() == 0) {
+                        toastMsg("数据已加载完毕");
+                    }else{
+                        classify2ContentRVAdapter.addMoreDatas(classifyFoodParList);
+                        classify2ContentRVAdapter.notifyDataSetChanged();
+                    }
                 }
             }
 

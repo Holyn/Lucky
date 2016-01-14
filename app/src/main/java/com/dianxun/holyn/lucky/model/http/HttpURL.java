@@ -34,13 +34,13 @@ public class HttpURL {
     public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
     public final static String MSG_OK = "ok";//注册成功
 
-    /**
+    /***********************************************************************************************
      * 店铺-获取商品分类的类型列表
      * http://115.28.54.56/xingyun/index.php/Api/Company/listCompanyType
      */
     public final static String COMPANY_CLASSIFY_TYPE_ID_LIST = URL_API_PRE + COMPANY +"listCompanyType";
 
-    /**
+    /***********************************************************************************************
      * 商品-首页列表
      * http://115.28.54.56/xingyun/index.php/Api/Food/listIndexFood
      */
@@ -70,7 +70,7 @@ public class HttpURL {
      */
     public final static String FOOD_ROOM_ADD = URL_API_PRE + FOOD +"addRoom";
 
-    /**
+    /***********************************************************************************************
      * 用户-登录
      * http://115.28.54.56/xingyun/index.php/Api/User/doLogin/tel/13590604841/password/123456
      */
@@ -94,5 +94,12 @@ public class HttpURL {
      * http://115.28.54.56/xingyun/index.php/Api/User/doPassword/id/123/password/123/oldPassword/12345
      */
     public final static String USER_DO_PASSWORD = URL_API_PRE + USER +"doPassword/";
+
+    /**
+     * 用户-修改用户信息
+     * http://115.28.54.56/xingyun/index.php/Api/User/update/id/123/name/holyn/tel/123/address/12345/pic/xxxxxxxxx
+     * 成功后：返回用户Json
+     */
+    public final static String USER_UPDATE = URL_API_PRE + USER +"update/";
 
 }

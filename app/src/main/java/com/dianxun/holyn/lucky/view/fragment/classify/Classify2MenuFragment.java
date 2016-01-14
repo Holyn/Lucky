@@ -71,9 +71,7 @@ public class Classify2MenuFragment extends BasePresenterXRViewFragment implement
 
     @Override
     public void onRVItemClick(ViewGroup viewGroup, View view, int i) {
-//        getXrecyclerview().getChildAt()
         EventBus.getDefault().post(classify2MenuRVAdapter.getItem(i - 1));
-        System.out.println("====> viewGroup.getChildCount() = " + viewGroup.getChildCount());
         for (int j =0; j<viewGroup.getChildCount(); j++){
             viewGroup.getChildAt(j).setSelected(false);
         }
