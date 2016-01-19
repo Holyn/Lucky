@@ -1,8 +1,11 @@
 package com.dianxun.holyn.lucky.view.module;
 
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
+import com.dianxun.holyn.lucky.view.fragment.BasePresenterXRViewFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeOrderListFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeRegisterFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeUserInfoFragment;
 
 import dagger.Module;
 
@@ -12,7 +15,8 @@ import dagger.Module;
 
 @Module(complete = false ,
         injects = {
-                MeActivity.class, MeLoginFragment.class, MeRegisterFragment.class
+                MeActivity.class, MeLoginFragment.class, MeRegisterFragment.class,
+                BasePresenterXRViewFragment.class, MeUserInfoFragment.class, MeOrderListFragment.class
         })
 public class MeActivityModule {
 
