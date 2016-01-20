@@ -1,5 +1,7 @@
 package com.dianxun.holyn.lucky.presenter.base;
 
+import org.xutils.http.RequestParams;
+
 import java.lang.reflect.Type;
 
 /**
@@ -15,4 +17,9 @@ public interface BasePresenterInterface {
      * 请求一个列表jsonArray
      */
     public void setOnBaseGetNetDataListener(String url, Type type, OnBaseGetNetDataListener onBaseGetNetDataListener);
+
+    /**
+     * 上传文件
+     */
+    public void setOnBaseUploadListener(RequestParams requestParams, OnBaseUploadListener onBaseUploadListener);
 }

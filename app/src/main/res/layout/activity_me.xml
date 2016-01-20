@@ -19,6 +19,18 @@
             android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_20" />
+
+        <TextView
+            android:id="@+id/tv_toolbar_save"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|right"
+            android:text="保存"
+            android:background="@drawable/selector_light_gray_70_pre"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_20"
+            android:visibility="gone"/>
     </android.support.v7.widget.Toolbar>
     <FrameLayout
         android:id="@+id/fl_container"

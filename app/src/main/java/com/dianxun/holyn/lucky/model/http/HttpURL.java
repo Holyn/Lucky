@@ -96,6 +96,14 @@ public class HttpURL {
     public final static String USER_DO_PASSWORD = URL_API_PRE + USER +"doPassword/";
 
     /**
+     * 用户-上传头像 （post方式）
+     * http://115.28.54.56/xingyun/index.php/Api/User/upload
+     * 文件的form字段是imgfile
+     * 返回json里面带有图片的网络路径
+     */
+    public final static String USER_UPLOAD_IMG = URL_API_PRE + USER +"upload";
+
+    /**
      * 用户-修改用户信息
      * http://115.28.54.56/xingyun/index.php/Api/User/update/id/123/name/holyn/tel/123/address/12345/pic/xxxxxxxxx
      * 成功后：返回用户Json

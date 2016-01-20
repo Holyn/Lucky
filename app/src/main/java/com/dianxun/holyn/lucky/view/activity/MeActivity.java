@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.dianxun.holyn.lucky.R;
@@ -15,6 +14,7 @@ import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeMemberCenterFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeRegisterFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeSettingFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeUserInfoFragment;
 import com.dianxun.holyn.lucky.view.module.MeActivityModule;
 
 import java.util.LinkedList;
@@ -30,6 +30,8 @@ public class MeActivity extends BaseActivity {
     TextView tvToolbarTitle;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    @Bind(R.id.tv_toolbar_save)
+    TextView tvToolbarSave;
 
     private Menu mMenu;//控制菜单的显示或者隐藏
 
@@ -38,6 +40,7 @@ public class MeActivity extends BaseActivity {
     private MeSettingFragment meSettingFragment = null;
     private MeLoginFragment meLoginFragment = null;
     private MeRegisterFragment meRegisterFragment = null;
+    private MeUserInfoFragment meUserInfoFragment = null;
 
     @Override
     protected int getLayoutResId() {
@@ -80,6 +83,10 @@ public class MeActivity extends BaseActivity {
         tvToolbarTitle.setText(title);
     }
 
+    public TextView getTvToolbarSave(){
+        return  this.tvToolbarSave;
+    }
+
     public void setMenuSettingEnable(boolean isEnable) {
         if (isEnable) {
             showMenu();
@@ -103,15 +110,15 @@ public class MeActivity extends BaseActivity {
         });
     }
 
-    private void showMeMemberCenterFragment(){
-        if (meMemberCenterFragment == null){
+    private void showMeMemberCenterFragment() {
+        if (meMemberCenterFragment == null) {
             meMemberCenterFragment = MeMemberCenterFragment.newInstance();
         }
         fragmentManager.beginTransaction().replace(R.id.fl_container, meMemberCenterFragment).commit();
     }
 
-    public void showMeSettingFragment(){
-        if (meSettingFragment == null){
+    public void showMeSettingFragment() {
+        if (meSettingFragment == null) {
             meSettingFragment = MeSettingFragment.newInstance();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -120,8 +127,8 @@ public class MeActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void showMeLoginFragment(){
-        if (meLoginFragment == null){
+    public void showMeLoginFragment() {
+        if (meLoginFragment == null) {
             meLoginFragment = MeLoginFragment.newInstance();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -130,12 +137,22 @@ public class MeActivity extends BaseActivity {
         transaction.commit();
     }
 
-    public void showMeRegisterFragment(){
-        if (meRegisterFragment == null){
+    public void showMeRegisterFragment() {
+        if (meRegisterFragment == null) {
             meRegisterFragment = MeRegisterFragment.newInstance();
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fl_container, meRegisterFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void showMeUserInfoFragment() {
+        if (meUserInfoFragment == null) {
+            meUserInfoFragment = MeUserInfoFragment.newInstance();
+        }
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_container, meUserInfoFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

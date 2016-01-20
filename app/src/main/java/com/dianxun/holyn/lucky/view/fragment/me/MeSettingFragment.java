@@ -78,14 +78,16 @@ public class MeSettingFragment extends Fragment {
         ll01.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
-                    ((MeActivity) getActivity()).showMeLoginFragment();
-                }else{
-                    Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
-                    intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
-                    intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 2);
-                    startActivityForResult(intent, 0);
-                }
+//                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
+//                    ((MeActivity) getActivity()).showMeLoginFragment();
+//                }else{
+//                    Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
+//                    intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
+//                    intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 2);
+//                    startActivityForResult(intent, 0);
+//                }
+
+                ((MeActivity) getActivity()).showMeUserInfoFragment();
             }
         });
 

@@ -43,5 +43,5 @@ dependencies {
     compile 'com.ogaclejapan.smarttablayout:library:1.6.0'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.0'
     compile 'cn.bingoogolapple:bga-banner:2.0.2'
-    compile 'org.xutils:xutils:3.2.0'
+    compile 'org.xutils:xutils:3.2.8'
 }
