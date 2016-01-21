@@ -103,12 +103,10 @@ public class MeMemberCenterFragment extends Fragment {
 
         if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
             btnLogin.setText("登 录");
-            String pic = UserInfoSP.getSingleInstance(getActivity()).getPic();
-            if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
-                Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic).into(rivHeader);
-            }
         }else{
             btnLogin.setText("注 销");
+            String pic = UserInfoSP.getSingleInstance(getActivity()).getPic();
+            showPic(pic);
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -128,10 +126,7 @@ public class MeMemberCenterFragment extends Fragment {
     public void onEventSubscribeLogin(UserPar userPar) {
         System.out.println("====> " + userPar.getTel() + "::" + userPar.getPic());
         btnLogin.setText("注 销");
-        String pic = userPar.getPic();
-        if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
-            Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic).into(rivHeader);
-        }
+        showPic(userPar.getPic());
     }
 
     private void showExitDialog(){
@@ -152,5 +147,17 @@ public class MeMemberCenterFragment extends Fragment {
             }
         });
         builder.create().show();
+    }
+
+    private void showPic(String pic){
+        if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
+            Picasso.with(getActivity())
+                    .load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic)
+                    .resize(200, 200)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_picture_empty)
+                    .error(R.drawable.ic_picture_empty)
+                    .into(rivHeader);
+        }
     }
 }

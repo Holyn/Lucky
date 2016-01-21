@@ -3,19 +3,29 @@ package com.dianxun.holyn.lucky.view.fragment.me;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 
 import com.dianxun.holyn.lucky.R;
+import com.dianxun.holyn.lucky.model.http.HttpURL;
+import com.dianxun.holyn.lucky.model.parcelable.UserPar;
+import com.dianxun.holyn.lucky.model.sharedpreferences.UserInfoSP;
 import com.dianxun.holyn.lucky.presenter.base.BasePresenter;
+import com.dianxun.holyn.lucky.presenter.base.OnBaseGetNetDataListener;
 import com.dianxun.holyn.lucky.presenter.base.OnBaseUploadListener;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
 import com.dianxun.holyn.lucky.view.fragment.BaseFragment;
 import com.holyn.selectlocalimage.LocalImageVo;
 import com.holyn.selectlocalimage.SelectLocalPicActivity;
+import com.makeramen.roundedimageview.RoundedImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import javax.inject.Inject;
+
+import butterknife.Bind;
 
 /**
  * Created by holyn on 2016/1/14.
@@ -23,6 +33,12 @@ import javax.inject.Inject;
 public class MeUserInfoFragment extends BaseFragment {
     @Inject
     BasePresenter basePresenter;
+    @Bind(R.id.riv_header)
+    RoundedImageView rivHeader;
+    @Bind(R.id.et_address)
+    EditText etAddress;
+
+    private LocalImageVo localImageVo;
 
     public static MeUserInfoFragment newInstance() {
         return new MeUserInfoFragment();
@@ -58,13 +74,74 @@ public class MeUserInfoFragment extends BaseFragment {
             }
         });
 
+        String pic = UserInfoSP.getSingleInstance(getActivity()).getPic();
+        if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
+            Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic).into(rivHeader);
+        }
+
+        rivHeader.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
+                intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
+                intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 1);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        etAddress.setText(UserInfoSP.getSingleInstance(getActivity()).getAddress());
+
     }
 
     private void uploadImage() {
-        Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
-        intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
-        intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 1);
-        startActivityForResult(intent, 0);
+        basePresenter.setOnUploadHeaderListener(localImageVo.getPath(), new OnBaseUploadListener() {
+            @Override
+            public void onBegin() {
+                showLoadingDialog();
+            }
+
+            @Override
+            public void onLoading(long total, long current, boolean isUploading) {
+
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+                String pic = (String)object;
+                updateUserInfo(pic);
+            }
+
+            @Override
+            public void onError(String msg) {
+                closeLoadingDialog();
+            }
+        });
+    }
+
+    private void updateUserInfo(String pic){
+        UserPar userPar = UserInfoSP.getSingleInstance(getActivity()).getUserPar();
+        userPar.setPic(pic);
+        userPar.setAddress(etAddress.getText().toString().trim());
+
+        basePresenter.setOnUpdateUserInfoListener(userPar, new OnBaseGetNetDataListener() {
+            @Override
+            public void onBegin() {
+
+            }
+
+            @Override
+            public void onSuccess(Object object) {
+                UserPar userParNew = (UserPar)object;
+                System.out.println("====> address = "+userParNew.getAddress());
+                UserInfoSP.getSingleInstance(getActivity()).setUserPar(userParNew);
+                closeLoadingDialog();
+            }
+
+            @Override
+            public void onError(String msg) {
+                closeLoadingDialog();
+            }
+        });
     }
 
     @Override
@@ -76,37 +153,17 @@ public class MeUserInfoFragment extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("====> onActivityResult........");
-        if (resultCode == Activity.RESULT_OK){
+
+        if (resultCode == Activity.RESULT_OK) {
             List<LocalImageVo> localImageVoList = data.getParcelableArrayListExtra(SelectLocalPicActivity.EXTRA_SELECT_IMAGEVOS);
-            for(int i=0; i<localImageVoList.size(); i++){
-                LocalImageVo imageVo = localImageVoList.get(i);
-                System.out.println("====>("+i+")::"+imageVo.getPath());
-                System.out.println("====>("+i+")::name = "+imageVo.getName());
-
-                basePresenter.setOnUploadHeaderListener(imageVo.getPath(), new OnBaseUploadListener() {
-                    @Override
-                    public void onBegin() {
-
-                    }
-
-                    @Override
-                    public void onLoading(long total, long current, boolean isUploading) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(Object object) {
-
-                    }
-
-                    @Override
-                    public void onError(String msg) {
-
-                    }
-                });
-
-            }
+            localImageVo = localImageVoList.get(0);
+            Picasso.with(getActivity())
+                    .load("file://" + localImageVo.getPath())
+                    .resize(100, 100)
+                    .centerCrop()
+                    .placeholder(R.drawable.ic_picture_empty)
+                    .error(R.drawable.ic_picture_empty)
+                    .into(rivHeader);
         }
     }
 }

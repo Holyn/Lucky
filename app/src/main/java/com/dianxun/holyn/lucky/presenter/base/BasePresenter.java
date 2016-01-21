@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.dianxun.holyn.lucky.model.http.HttpURL;
 import com.dianxun.holyn.lucky.model.parcelable.ClassifyFoodPar;
 import com.dianxun.holyn.lucky.model.parcelable.CompanyTypePar;
+import com.dianxun.holyn.lucky.model.parcelable.UserPar;
 import com.dianxun.holyn.lucky.utils.ImageTransFormatUtil;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -19,7 +20,9 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -60,6 +63,22 @@ public class BasePresenter implements BasePresenterInterface{
 //        requestParams.addBodyParameter("imgfile", new File(imagePath));
 
         setOnBaseUploadListener(requestParams, onBaseUploadListener);
+    }
+
+    public void setOnUpdateUserInfoListener(UserPar userPar, OnBaseGetNetDataListener onBaseGetNetDataListener){
+        try {
+            String address = URLEncoder.encode(userPar.getAddress(), "UTF-8");
+
+            String url = HttpURL.USER_UPDATE+HttpURL.PARAM_ID+userPar.getId()
+                    +HttpURL.ONE_SPRIT+HttpURL.PARAM_NAMW+userPar.getName()
+                    +HttpURL.ONE_SPRIT+HttpURL.PARAM_TEL+userPar.getTel()
+                    +HttpURL.ONE_SPRIT+HttpURL.PARAM_ADDRESS+address
+                    +HttpURL.ONE_SPRIT+HttpURL.PARAM_PIC+userPar.getPic();
+            setOnBaseGetNetDataListener(url, UserPar.class, onBaseGetNetDataListener);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -170,6 +189,26 @@ public class BasePresenter implements BasePresenterInterface{
             @Override
             public void onSuccess(String result) {
                 System.out.println("====> onSuccess....result = "+result);
+                try {
+                    JsonParser parser = new JsonParser();
+                    JsonObject jsonObject = parser.parse(result).getAsJsonObject();
+                    JsonElement msgtEle = jsonObject.get("msg");
+                    if (msgtEle == null) {
+                        onBaseUploadListener.onError("出现异常");
+                    } else {
+                        if (msgtEle.isJsonPrimitive()){
+                            String msg = msgtEle.getAsString();
+                            if (msg.equals(HttpURL.MSG_ERROR)){
+                                onBaseUploadListener.onError("出现异常");
+                            }else {
+                                onBaseUploadListener.onSuccess(msg);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    onBaseUploadListener.onError("出现异常");
+                    System.out.println(e);
+                }
             }
 
             @Override

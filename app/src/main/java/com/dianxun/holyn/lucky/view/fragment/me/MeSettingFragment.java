@@ -1,7 +1,5 @@
 package com.dianxun.holyn.lucky.view.fragment.me;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,10 +11,6 @@ import android.widget.LinearLayout;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.sharedpreferences.UserInfoSP;
 import com.dianxun.holyn.lucky.view.activity.MeActivity;
-import com.holyn.selectlocalimage.LocalImageVo;
-import com.holyn.selectlocalimage.SelectLocalPicActivity;
-
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -78,16 +72,11 @@ public class MeSettingFragment extends Fragment {
         ll01.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-//                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
-//                    ((MeActivity) getActivity()).showMeLoginFragment();
-//                }else{
-//                    Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
-//                    intent.putExtra(SelectLocalPicActivity.EXTRA_IS_SHOW_CAMERA, true);
-//                    intent.putExtra(SelectLocalPicActivity.EXTRA_MAX_SELECT, 2);
-//                    startActivityForResult(intent, 0);
-//                }
-
-                ((MeActivity) getActivity()).showMeUserInfoFragment();
+                if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
+                    ((MeActivity) getActivity()).showMeLoginFragment();
+                }else{
+                    ((MeActivity) getActivity()).showMeUserInfoFragment();
+                }
             }
         });
 
@@ -136,19 +125,6 @@ public class MeSettingFragment extends Fragment {
 
             }
         });
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("====> onActivityResult........");
-        if (resultCode == Activity.RESULT_OK){
-            List<LocalImageVo> localImageVoList = data.getParcelableArrayListExtra(SelectLocalPicActivity.EXTRA_SELECT_IMAGEVOS);
-            for(int i=0; i<localImageVoList.size(); i++){
-                LocalImageVo imageVo = localImageVoList.get(i);
-                System.out.println("====>("+i+")::"+imageVo.getPath());
-            }
-        }
     }
 
     @Override

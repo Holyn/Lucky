@@ -29,6 +29,8 @@ public class HttpURL {
     public final static String PARAM_FOOD_ID = "foodId/";
     public final static String PARAM_USER_ID = "userId/";
     public final static String PARAM_TYPE_ID = "typeId/";
+    public final static String PARAM_ADDRESS = "address/";
+    public final static String PARAM_PIC = "pic/";
 
     /* 一些错误信息 */
     public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
