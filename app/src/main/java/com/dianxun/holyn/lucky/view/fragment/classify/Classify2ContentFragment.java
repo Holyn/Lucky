@@ -51,7 +51,7 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        showEmptyView();
+        setAllViewGone();
         setLoadingListenner(true, true);
     }
 

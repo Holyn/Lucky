@@ -57,7 +57,7 @@ public class HttpURL {
 
     /**
      * 商品-详情
-     * http://115.28.54.56/xingyun/index.php/Api/Food/getInfo
+     * http://115.28.54.56/xingyun/index.php/Api/Food/getInfo/id/123
      */
     public final static String FOOD_DETAIL = URL_API_PRE + FOOD +"getInfo";
 

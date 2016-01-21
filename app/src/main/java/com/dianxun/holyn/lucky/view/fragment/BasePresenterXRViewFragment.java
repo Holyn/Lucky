@@ -113,6 +113,15 @@ public abstract class BasePresenterXRViewFragment extends BaseFragment implement
 
     }
 
+    protected void setAllViewGone(){
+        if (emptyView != null){
+            emptyView.setVisibility(View.GONE);
+        }
+        if (xrecyclerview != null){
+            xrecyclerview.setVisibility(View.GONE);
+        }
+    }
+
     protected void showEmptyView(){
         if (emptyView != null){
             emptyView.setVisibility(View.VISIBLE);
