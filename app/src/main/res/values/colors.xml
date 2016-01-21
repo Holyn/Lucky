@@ -24,6 +24,7 @@
     <color name="white">#ffffff</color>
     <color name="white_trans_214">#d6ffffff</color>
     <color name="grey_divide">#E0E1E0</color>
+    <color name="grey_divide2">#FFF1F1F1</color>
     <color name="blue">#0066cc</color>
     <color name="blue_m">#2f8bcc</color>
     <color name="blue_h">#0e629e</color>

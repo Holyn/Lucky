@@ -11,7 +11,6 @@ import com.dianxun.holyn.lucky.model.parcelable.ClassifyFoodPar;
 import com.dianxun.holyn.lucky.model.parcelable.CompanyTypePar;
 import com.dianxun.holyn.lucky.presenter.base.OnBaseGetNetDataListener;
 import com.dianxun.holyn.lucky.view.fragment.BasePresenterXRViewFragment;
-import com.dianxun.holyn.lucky.view.utils.DividerGridItemDecoration;
 
 import java.util.List;
 
@@ -75,7 +74,6 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
         getXrecyclerview().setLayoutManager(gridLayoutManager);
         getXrecyclerview().addHeaderView(getHeaderView());
         getXrecyclerview().setAdapter(classify2ContentRVAdapter);
-        getXrecyclerview().addItemDecoration(new DividerGridItemDecoration(getActivity()));
     }
 
     private View getHeaderView(){
