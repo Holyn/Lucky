@@ -82,6 +82,7 @@ public class MeUserInfoFragment extends BaseFragment {
             for(int i=0; i<localImageVoList.size(); i++){
                 LocalImageVo imageVo = localImageVoList.get(i);
                 System.out.println("====>("+i+")::"+imageVo.getPath());
+                System.out.println("====>("+i+")::name = "+imageVo.getName());
 
                 basePresenter.setOnUploadHeaderListener(imageVo.getPath(), new OnBaseUploadListener() {
                     @Override

@@ -103,6 +103,10 @@ public class MeMemberCenterFragment extends Fragment {
 
         if (UserInfoSP.getSingleInstance(getActivity()).getPassword().equals("")){//还没有登录
             btnLogin.setText("登 录");
+            String pic = UserInfoSP.getSingleInstance(getActivity()).getPic();
+            if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
+                Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic).into(rivHeader);
+            }
         }else{
             btnLogin.setText("注 销");
         }

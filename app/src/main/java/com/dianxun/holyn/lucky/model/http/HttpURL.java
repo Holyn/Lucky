@@ -33,6 +33,7 @@ public class HttpURL {
     /* 一些错误信息 */
     public final static String MSG_TEL_ERROR = "telError";//电话号码已经注册
     public final static String MSG_OK = "ok";//注册成功
+    public final static String MSG_ERROR = "error";
 
     /***********************************************************************************************
      * 店铺-获取商品分类的类型列表

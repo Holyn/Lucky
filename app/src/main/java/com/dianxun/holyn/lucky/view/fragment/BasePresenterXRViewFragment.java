@@ -55,6 +55,24 @@ public abstract class BasePresenterXRViewFragment extends BaseFragment implement
         return xrecyclerview;
     }
 
+    public void completeRefresh(){
+        if (xrecyclerview != null){
+            xrecyclerview.refreshComplete();
+        }
+    }
+
+    public void completeLoadMore(){
+        if (xrecyclerview != null){
+            xrecyclerview.loadMoreComplete();
+        }
+    }
+
+    public void smoothScrollToPosition(int position){
+        if (xrecyclerview != null){
+            xrecyclerview.smoothScrollToPosition(position);
+        }
+    }
+
     protected void addHeaderView(View headerView) {
         xrecyclerview.addHeaderView(headerView);
     }

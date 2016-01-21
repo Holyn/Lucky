@@ -9,6 +9,10 @@ import java.lang.reflect.Type;
  */
 public interface BasePresenterInterface {
     /**
+     * 请求一个json的基础类型数据jsonPrimitive
+     */
+
+    /**
      *  请求一个实体jsonObject
      */
     public void setOnBaseGetNetDataListener(String url, Class cl, OnBaseGetNetDataListener onBaseGetNetDataListener);

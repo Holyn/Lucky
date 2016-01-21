@@ -20,6 +20,8 @@ import org.xutils.x;
 
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -47,11 +49,14 @@ public class BasePresenter implements BasePresenterInterface{
         RequestParams requestParams = new RequestParams(url);
         requestParams.setMultipart(true);
 
-        //压缩
+        // 压缩
         Bitmap bitmap = PictureCompressUtil.getInstance().compress(imagePath, 400, 400, 800);
         InputStream inputStream = ImageTransFormatUtil.getInstance().Bitmap2InputStream(bitmap);
+        // 设置文件名
+        String timeStr = (new SimpleDateFormat("hhmmss")).format(new Date());
+        String imgName = timeStr + ".jpg";
 
-        requestParams.addBodyParameter("imgfile", inputStream, null);
+        requestParams.addBodyParameter("imgfile", inputStream, "image/jpeg",imgName);
 //        requestParams.addBodyParameter("imgfile", new File(imagePath));
 
         setOnBaseUploadListener(requestParams, onBaseUploadListener);

@@ -3,10 +3,8 @@ package com.dianxun.holyn.lucky.view.fragment.classify;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.parcelable.ClassifyFoodPar;
@@ -54,7 +52,6 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        System.out.println("====> Classify2ContentFragment--onViewCreated....");
         showEmptyView();
         setLoadingListenner(true, true);
     }
@@ -99,17 +96,17 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
                 List<ClassifyFoodPar> classifyFoodParList = (List<ClassifyFoodPar>) object;
                 if (page == 1){
                     classify2ContentRVAdapter.clear();
-                    getXrecyclerview().refreshComplete();
+                    completeRefresh();
 
                     if (classifyFoodParList.size() == 0){
                         toastMsg("没数据");
                     }else{
                         classify2ContentRVAdapter.addNewDatas(classifyFoodParList);
-                        getXrecyclerview().smoothScrollToPosition(0);
+                        smoothScrollToPosition(0);
                         classify2ContentRVAdapter.notifyDataSetChanged();
                     }
                 }else{
-                    getXrecyclerview().loadMoreComplete();
+                    completeLoadMore();
                     if (classifyFoodParList.size() == 0) {
                         toastMsg("数据已加载完毕");
                     }else{
@@ -122,10 +119,10 @@ public class Classify2ContentFragment extends BasePresenterXRViewFragment implem
             @Override
             public void onError(String msg) {
                 if (page == 1){
-                    getXrecyclerview().loadMoreComplete();
+                    completeRefresh();
                     showErrorView();
                 }else{
-                    getXrecyclerview().refreshComplete();
+                    completeLoadMore();
                 }
 
             }
