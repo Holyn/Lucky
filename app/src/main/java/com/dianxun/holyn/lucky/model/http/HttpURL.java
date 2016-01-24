@@ -113,4 +113,15 @@ public class HttpURL {
      */
     public final static String USER_UPDATE = URL_API_PRE + USER +"update/";
 
+    /***********************************************************************************************
+     * 订单-我的订单列表
+     * http://115.28.54.56/xingyun/index.php/Api/Book/listBook/userId/41
+     */
+
+    /**
+     * 订单-我的订单详情
+     * http://115.28.54.56/xingyun/index.php/Api/Book/getInfo/id/1
+     * 参数 id：订单ID
+     */
+
 }

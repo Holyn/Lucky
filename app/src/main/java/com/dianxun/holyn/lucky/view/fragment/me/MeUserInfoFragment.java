@@ -1,11 +1,17 @@
 package com.dianxun.holyn.lucky.view.fragment.me;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.model.http.HttpURL;
@@ -37,6 +43,12 @@ public class MeUserInfoFragment extends BaseFragment {
     RoundedImageView rivHeader;
     @Bind(R.id.et_address)
     EditText etAddress;
+    @Bind(R.id.tv_id)
+    TextView tvId;
+    @Bind(R.id.et_name)
+    EditText etName;
+    @Bind(R.id.et_tel)
+    EditText etTel;
 
     private LocalImageVo localImageVo;
 
@@ -70,16 +82,16 @@ public class MeUserInfoFragment extends BaseFragment {
         ((MeActivity) getActivity()).getTvToolbarSave().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
+                submitSaveInfo();
             }
         });
 
         String pic = UserInfoSP.getSingleInstance(getActivity()).getPic();
-        if (!pic.equals("0") && !TextUtils.isEmpty(pic)){
-            Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE+HttpURL.USER+pic).into(rivHeader);
+        if (!pic.equals("0") && !TextUtils.isEmpty(pic)) {
+            Picasso.with(getActivity()).load(HttpURL.URL_PIC_PRE + HttpURL.USER + pic).into(rivHeader);
         }
 
-        rivHeader.setOnClickListener(new View.OnClickListener(){
+        rivHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SelectLocalPicActivity.class);
@@ -89,7 +101,29 @@ public class MeUserInfoFragment extends BaseFragment {
             }
         });
 
+        tvId.setText(UserInfoSP.getSingleInstance(getActivity()).getId());
+        etName.setText(UserInfoSP.getSingleInstance(getActivity()).getName());
+        etTel.setText(UserInfoSP.getSingleInstance(getActivity()).getTel());
         etAddress.setText(UserInfoSP.getSingleInstance(getActivity()).getAddress());
+
+    }
+
+    private void submitSaveInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("确定保存？")
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        uploadImage();
+                        dialog.dismiss();
+                    }
+                }).create().show();
 
     }
 
@@ -107,20 +141,23 @@ public class MeUserInfoFragment extends BaseFragment {
 
             @Override
             public void onSuccess(Object object) {
-                String pic = (String)object;
+                String pic = (String) object;
                 updateUserInfo(pic);
             }
 
             @Override
             public void onError(String msg) {
                 closeLoadingDialog();
+                toastMsg("保存失败");
             }
         });
     }
 
-    private void updateUserInfo(String pic){
+    private void updateUserInfo(String pic) {
         UserPar userPar = UserInfoSP.getSingleInstance(getActivity()).getUserPar();
         userPar.setPic(pic);
+        userPar.setName(etName.getText().toString().trim());
+        userPar.setTel(etTel.getText().toString().trim());
         userPar.setAddress(etAddress.getText().toString().trim());
 
         basePresenter.setOnUpdateUserInfoListener(userPar, new OnBaseGetNetDataListener() {
@@ -131,15 +168,16 @@ public class MeUserInfoFragment extends BaseFragment {
 
             @Override
             public void onSuccess(Object object) {
-                UserPar userParNew = (UserPar)object;
-                System.out.println("====> address = "+userParNew.getAddress());
+                UserPar userParNew = (UserPar) object;
                 UserInfoSP.getSingleInstance(getActivity()).setUserPar(userParNew);
                 closeLoadingDialog();
+                toastMsg("保存成功");
             }
 
             @Override
             public void onError(String msg) {
                 closeLoadingDialog();
+                toastMsg("保存失败");
             }
         });
     }
