@@ -70,9 +70,9 @@ public class HttpURL {
 
     /**
      * 商品-针对某个商品新建房间
-     * http://115.28.54.56/xingyun/index.php/Api/Food/addRoom
+     * http://115.28.54.56/xingyun/index.php/Api/Food/addRoom/foodId/1/userId/41/password/123456
      */
-    public final static String FOOD_ROOM_ADD = URL_API_PRE + FOOD +"addRoom";
+    public final static String FOOD_ROOM_ADD = URL_API_PRE + FOOD +"addRoom/";
 
     /***********************************************************************************************
      * 用户-登录

@@ -125,10 +125,12 @@ public class MeUserInfoFragment extends BaseFragment {
     }
 
     private void uploadImage() {
+        showLoadingDialog();
+
         basePresenter.setOnUploadHeaderListener(localImageVo.getPath(), new OnBaseUploadListener() {
             @Override
             public void onBegin() {
-                showLoadingDialog();
+
             }
 
             @Override

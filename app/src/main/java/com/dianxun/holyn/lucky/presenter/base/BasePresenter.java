@@ -186,6 +186,7 @@ public class BasePresenter implements BasePresenterInterface{
             @Override
             public void onStarted() {
                 System.out.println("====> onStarted....");
+                onBaseUploadListener.onBegin();
             }
 
             @Override
@@ -221,7 +222,8 @@ public class BasePresenter implements BasePresenterInterface{
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                System.out.println("====> onError....ex="+ex);
+                System.out.println("====> onError....ex=" + ex);
+                onBaseUploadListener.onError("出现异常");
             }
 
             @Override
