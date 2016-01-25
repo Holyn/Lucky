@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.dianxun.holyn.lucky.R;
 import com.dianxun.holyn.lucky.view.fragment.me.MeLoginFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeMemberCenterFragment;
+import com.dianxun.holyn.lucky.view.fragment.me.MeOrderListFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeRegisterFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeSettingFragment;
 import com.dianxun.holyn.lucky.view.fragment.me.MeUserInfoFragment;
@@ -41,6 +42,7 @@ public class MeActivity extends BaseActivity {
     private MeLoginFragment meLoginFragment = null;
     private MeRegisterFragment meRegisterFragment = null;
     private MeUserInfoFragment meUserInfoFragment = null;
+    private MeOrderListFragment meOrderListFragment = null;
 
     @Override
     protected int getLayoutResId() {
@@ -153,6 +155,14 @@ public class MeActivity extends BaseActivity {
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fl_container, meUserInfoFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void showMeOrderListFragment(String userId){
+        meOrderListFragment = MeOrderListFragment.newInstance(userId);
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fl_container, meOrderListFragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

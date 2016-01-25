@@ -3,6 +3,7 @@ package com.dianxun.holyn.lucky.presenter.base;
 import android.graphics.Bitmap;
 
 import com.dianxun.holyn.lucky.model.http.HttpURL;
+import com.dianxun.holyn.lucky.model.parcelable.BookPar;
 import com.dianxun.holyn.lucky.model.parcelable.ClassifyFoodPar;
 import com.dianxun.holyn.lucky.model.parcelable.CompanyTypePar;
 import com.dianxun.holyn.lucky.model.parcelable.UserPar;
@@ -79,6 +80,13 @@ public class BasePresenter implements BasePresenterInterface{
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setOnGetBookParListListener(String userId, int page, OnBaseGetNetDataListener onBaseGetNetDataListener){
+        String url = HttpURL.BOOK_LIST
+                +HttpURL.PARAM_USER_ID+userId
+                +HttpURL.ONE_SPRIT+HttpURL.PARAM_PAGE+String.valueOf(page);
+        setOnBaseGetNetDataListener(url, new TypeToken<List<BookPar>>() {}.getType(), onBaseGetNetDataListener);
     }
 
     @Override

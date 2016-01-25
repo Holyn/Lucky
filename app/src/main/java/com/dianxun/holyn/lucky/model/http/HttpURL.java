@@ -22,6 +22,7 @@ public class HttpURL {
 
     /* 一些参数 */
     public final static String PARAM_ID = "id/";
+    public final static String PARAM_PAGE = "p/";
     public final static String PARAM_TEL = "tel/";
     public final static String PARAM_PASSWORD = "password/";
     public final static String PARAM_NAMW = "name/";
@@ -115,13 +116,15 @@ public class HttpURL {
 
     /***********************************************************************************************
      * 订单-我的订单列表
-     * http://115.28.54.56/xingyun/index.php/Api/Book/listBook/userId/41
+     * http://115.28.54.56/xingyun/index.php/Api/Book/listBook/userId/41/p/1
      */
+    public final static String BOOK_LIST = URL_API_PRE + BOOK +"listBook/";
 
     /**
      * 订单-我的订单详情
      * http://115.28.54.56/xingyun/index.php/Api/Book/getInfo/id/1
      * 参数 id：订单ID
      */
+    public final static String BOOK_DETAIL = URL_API_PRE + BOOK +"getInfo/";
 
 }

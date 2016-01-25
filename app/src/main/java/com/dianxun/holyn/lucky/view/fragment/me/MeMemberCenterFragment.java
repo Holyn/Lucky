@@ -88,6 +88,7 @@ public class MeMemberCenterFragment extends Fragment {
         if (rootView != null) {
             ViewGroup parent = (ViewGroup) rootView.getParent();
             if (null != parent) {
+                ButterKnife.bind(this, rootView);
                 parent.removeView(rootView);
             }
             return rootView;
@@ -143,6 +144,7 @@ public class MeMemberCenterFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 UserInfoSP.getSingleInstance(getActivity()).setPassword("");
+                UserInfoSP.getSingleInstance(getActivity()).setPic("");
                 btnLogin.setText("登 录");
             }
         });
